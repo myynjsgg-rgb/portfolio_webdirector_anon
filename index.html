@@ -1,967 +1,801 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Director — Portfolio</title>
+<title>Web Director Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--ink:#1a1a24;--ink-mid:#5a5a72;--ink-dim:#9a9ab0;--paper:#f7f6f3;--white:#ffffff;--line:#e4e3de;--gold:#c9a96e;--navy:#1e2d5a}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:'DM Sans','Noto Sans JP',sans-serif;font-weight:300;overflow-x:hidden}.fade{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.fade.visible{opacity:1;transform:none}nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:64px;background:rgba(247,246,243,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;letter-spacing:.06em;color:var(--ink);text-decoration:none}.nav-logo em{color:var(--gold);font-style:normal}.nav-links{display:flex;gap:36px}.nav-links a{font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s}.nav-links a:hover{color:var(--ink)}#hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding-top:64px}.hero-inner{display:flex;flex-direction:column;justify-content:center;padding:80px 6% 60px;max-width:1200px;margin:0 auto;width:100%}.hero-eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:32px}.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,108px);font-weight:300;line-height:.95;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}.hero-name em{font-style:italic;color:var(--gold)}.hero-name-ja{font-family:'Noto Sans JP',sans-serif;font-size:clamp(16px,2vw,24px);font-weight:300;letter-spacing:.15em;color:var(--ink-mid);margin-bottom:40px;display:block}.hero-role{font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:24px}.hero-role span{display:inline-block;padding:4px 12px;border:1px solid var(--line);border-radius:2px;margin-right:8px;font-size:11px}.hero-desc{font-size:15px;font-weight:300;line-height:1.9;color:var(--ink-mid);max-width:100%;margin-bottom:40px}.hero-chips{display:flex;flex-wrap:wrap;gap:8px}.hero-chip{font-size:11px;font-weight:400;letter-spacing:.08em;color:var(--ink-mid);padding:5px 14px;border:1px solid var(--line);border-radius:100px;background:var(--white)}.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);max-width:1200px;margin:0 auto;width:100%}.stat-item{padding:32px 6%;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.stat-item:nth-child(2n){border-right:none}.stat-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;line-height:1;letter-spacing:-.03em;color:var(--ink)}.stat-num sup{font-size:20px;color:var(--gold)}.stat-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-top:6px}.section{padding:100px 6%;max-width:1200px;margin:0 auto}.section-full{padding:100px 6%}.sec-eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:20px}.sec-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}.sec-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:16px}.sec-sub{font-size:14px;font-weight:300;color:var(--ink-mid);line-height:1.8;max-width:100%;margin-bottom:56px}.divider{border:none;border-top:1px solid var(--line);margin:0}.exp-layout{display:grid;grid-template-columns:200px 1fr;gap:0}.exp-item{display:contents}.exp-period{padding:32px 32px 32px 0;border-top:1px solid var(--line);font-size:12px;letter-spacing:.08em;color:var(--ink-dim);font-weight:400}.exp-body{padding:32px 0;border-top:1px solid var(--line);border-left:1px solid var(--line);padding-left:32px}.exp-co{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:500}.exp-role{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;letter-spacing:-.01em;color:var(--ink);margin-bottom:12px}.exp-desc{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.85;margin-bottom:16px;max-width:100%}.exp-tags{display:flex;flex-wrap:wrap;gap:6px}.exp-tag{font-size:10px;letter-spacing:.08em;color:var(--ink-dim);padding:3px 10px;border:1px solid var(--line);border-radius:2px}.metrics-header{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}.metrics-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}.metrics-label::before{content:'— ';color:var(--gold)}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:4px;overflow:hidden}.m-card{padding:36px 32px;border-right:1px solid var(--line);background:var(--white);transition:background .25s;cursor:pointer}.m-card:last-child{border-right:none}.m-card:hover{background:var(--navy)}.m-card:hover .m-num,.m-card:hover .m-num sup,.m-card:hover .m-title,.m-card:hover .m-desc,.m-card:hover .acc-btn{color:rgba(255,255,255,.8)}.m-card:hover .m-num{color:var(--white)}.m-card:hover .acc-detail{border-top-color:rgba(255,255,255,.15)}.m-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1;letter-spacing:-.03em;color:var(--ink);transition:color .25s}.m-num sup{font-size:22px;color:var(--gold);transition:color .25s}.m-title{font-size:13px;font-weight:500;color:var(--ink);margin:12px 0 6px;transition:color .25s}.m-desc{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.75;transition:color .25s}.acc-btn{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:11px;letter-spacing:.08em;color:var(--gold);cursor:pointer;background:none;border:none;font-family:inherit;padding:0;transition:color .25s}.acc-btn .arr{transition:transform .3s}.acc-btn.open .arr{transform:rotate(180deg)}.acc-detail{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.8;transition:border-color .25s,color .25s}.acc-detail.open{display:block}.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}.work-card{background:var(--white);cursor:pointer;transition:background .2s}.work-card:hover{background:var(--paper)}.work-thumb{aspect-ratio:4/3;overflow:hidden;display:flex;align-items:center;justify-content:center}.work-thumb img{width:100%;height:100%;object-fit:contain;display:block;padding:16px;transition:transform .4s ease}.work-card:hover .work-thumb img{transform:scale(1.03)}.work-info{padding:20px 24px;border-top:1px solid var(--line)}.work-cat{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}.work-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}.work-desc{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.7}.skills-layout{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}.skill-col{background:var(--white);padding:36px 28px}.skill-col-label{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--line)}.skill-items{display:flex;flex-direction:column;gap:10px}.skill-item{font-size:13px;font-weight:300;color:var(--ink-mid);padding:8px 0;border-bottom:1px solid var(--line);letter-spacing:.01em}.skill-item:last-child{border-bottom:none}.skill-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px}.skill-note{font-size:12px;font-weight:300;color:var(--ink-dim);line-height:1.7}.cert-block{background:var(--white);padding:36px 28px}.cert-col-label{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--line)}.cert-name-text{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px}.cert-score-text{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--ink);letter-spacing:-.02em;line-height:1}.cert-score-text span{font-size:13px;font-weight:300;color:var(--ink-dim);font-family:'DM Sans',sans-serif}#contact{padding:100px 6% 80px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;max-width:1200px;margin:0 auto;gap:24px}.contact-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,30px);font-weight:300;color:var(--ink-mid);letter-spacing:-.01em;line-height:1.5}.contact-email{font-size:14px;font-weight:300;color:var(--ink-mid);letter-spacing:.03em;cursor:text;user-select:all;text-decoration:none}.contact-email:hover{color:var(--ink)}footer{border-top:1px solid var(--line);padding:24px 6%;display:flex;justify-content:space-between;align-items:center}.footer-copy{font-size:11px;color:var(--ink-dim);letter-spacing:.08em}@media (max-width:768px){.nav-links{display:none}.hero-stats{grid-template-columns:repeat(2,1fr)}.metric-grid{grid-template-columns:1fr}.works-grid{grid-template-columns:1fr}.skills-layout{grid-template-columns:repeat(2,1fr)}.exp-layout{grid-template-columns:1fr}.exp-period{border-top:none;padding:24px 0 0}.case-4col{grid-template-columns:repeat(2,1fr)!important}}.slider-wrap{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:4px;background:var(--white)}.slider-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}.slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr}.slide-thumb{aspect-ratio:4/3;background:var(--paper);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in;border-right:1px solid var(--line)}.slide-thumb img{width:100%;height:100%;object-fit:contain;padding:24px;transition:transform .4s ease}.slide-thumb:hover img{transform:scale(1.04)}.slide-info{padding:40px 48px;display:flex;flex-direction:column;justify-content:center;gap:12px}.slide-cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}.slide-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;letter-spacing:-.01em;color:var(--ink);line-height:1.2}.slide-desc{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.75}.slide-counter{font-size:11px;letter-spacing:.1em;color:var(--ink-dim);margin-top:8px}.slider-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--line);color:var(--ink);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;z-index:10}.slider-btn:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}.slider-prev{left:16px}.slider-next{right:16px}.slider-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}.slider-dot{width:6px;height:6px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:background .2s,transform .2s;padding:0}.slider-dot.active{background:var(--gold);transform:scale(1.3)}.case-card{background:var(--white);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:32px}.case-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:24px;padding:40px 40px 32px;border-bottom:1px solid var(--line)}.case-num{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}.case-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;letter-spacing:-.01em;color:var(--ink);line-height:1.2;margin-bottom:12px}.case-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0}.case-tag{font-size:10px;letter-spacing:.1em;color:var(--ink-dim);padding:3px 10px;border:1px solid var(--line);border-radius:2px}.case-url a{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.08em;color:var(--gold);text-decoration:none;white-space:nowrap;border:1px solid var(--gold);border-radius:2px;padding:6px 14px;transition:background .2s,color .2s}.case-url a:hover{background:var(--gold);color:var(--white)}.case-body{display:grid;grid-template-columns:1fr 1fr;gap:0}.case-col{padding:32px 40px}.case-col:first-child{border-right:1px solid var(--line)}.case-col-label{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--line)}.case-desc{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.85}.case-meta{display:flex;flex-direction:column;gap:10px;margin-top:20px}.case-meta-row{display:flex;gap:12px;font-size:12px;font-weight:300}.case-meta-key{color:var(--ink-dim);min-width:72px;flex-shrink:0}.case-meta-val{color:var(--ink-mid)}.case-results{display:flex;flex-direction:column;gap:16px}.case-result-item{display:flex;align-items:center;gap:20px;padding:16px 20px;background:var(--paper);border-radius:4px}.case-result-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;line-height:1;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}.case-result-num sup{font-size:18px;color:var(--gold)}.case-result-label{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.7}.case-result-label strong{color:var(--ink);font-weight:500;display:block;margin-bottom:2px}.case-img-area{padding:0 40px 40px;display:flex;flex-direction:column;gap:12px}.case-img-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:4px}.case-img-placeholder{background:var(--paper);border:2px dashed var(--line);border-radius:4px;aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-dim);letter-spacing:.08em;cursor:pointer}.case-img-placeholder:hover{border-color:var(--gold);color:var(--gold)}.case-before-after{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ba-item{display:flex;flex-direction:column;gap:6px}.ba-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}.ba-img{background:var(--paper);border:2px dashed var(--line);border-radius:4px;aspect-ratio:16/3;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink-dim);cursor:pointer;overflow:hidden}.ba-img:hover{border-color:var(--gold);color:var(--gold)}@media (max-width:768px){.case-body{grid-template-columns:1fr}.case-col:first-child{border-right:none;border-bottom:1px solid var(--line)}.case-header{grid-template-columns:1fr}.case-before-after{grid-template-columns:1fr}}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Noto+Sans+JP:wght@200;300;400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0d0d0d;
+  --gray-dark:#3a3a3a;
+  --gray-mid:#888;
+  --gray-light:#ccc;
+  --gray-bg:#f5f5f3;
+  --white:#fff;
+  --line:#e8e8e6;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--white);
+  color:var(--black);
+  font-family:'DM Sans','Noto Sans JP',sans-serif;
+  font-weight:300;
+  font-size:13px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:60px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:300;
+  letter-spacing:.06em;color:var(--black);
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:40px}
+.nav-links a{
+  font-size:13px;font-weight:300;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gray-mid);text-decoration:none;
+  transition:color .2s;
+  position:relative;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--black)}
+.nav-links a.active::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:1px;background:var(--black);
+}
+
+/* PAGES */
+.page{display:none;padding-top:60px;min-height:100vh;}
+
+.page.active{display:block}
+
+/* HERO */
+#page-work .hero{
+  padding:120px max(32px, calc((100% - 1060px) / 2)) 100px;
+  border-bottom:none;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('images/hero_bg.jpg') center center / cover no-repeat;
+  min-height:70vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.hero-label{
+  font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);margin-bottom:24px;
+}
+.hero-name{
+  font-family:'DM Sans',sans-serif;
+  font-size:clamp(48px,7vw,96px);
+  font-weight:500;line-height:.95;
+  letter-spacing:-.02em;color:#fff;
+  margin-bottom:6px;
+}
+.hero-name-ja{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:clamp(14px,1.5vw,18px);
+  font-weight:200;letter-spacing:.2em;
+  color:rgba(255,255,255,0.7);margin-bottom:40px;display:block;
+}
+.hero-desc-en{
+  font-size:13px;font-weight:300;line-height:1.85;
+  color:rgba(255,255,255,0.85);max-width:860px;margin-bottom:10px;
+}
+.hero-desc-ja{
+  font-size:13px;font-weight:200;line-height:1.85;
+  color:rgba(255,255,255,0.7);max-width:860px;
+  font-family:'Noto Sans JP',sans-serif;
+}
+
+/* WORK GRID */
+.work-section{padding:80px max(32px, calc((100% - 1060px) / 2));}
+.work-section-label{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-mid);margin-bottom:48px;
+  padding-bottom:16px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:6px;
+}
+.work-section-label span{font-family:'Noto Sans JP';font-weight:200;font-size:11px;letter-spacing:.06em;text-transform:none;}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+.work-card{
+  background:var(--white);padding:40px 36px;
+  cursor:pointer;transition:background .2s;
+  text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;gap:0;
+}
+.work-card:hover{background:var(--gray-bg)}
+.work-card-num{
+  font-size:13px;letter-spacing:.16em;
+  color:var(--gray-light);margin-bottom:32px;
+}
+.work-card-thumb{
+  aspect-ratio:16/9;background:var(--gray-bg);
+  overflow:hidden;margin-bottom:28px;
+}
+.work-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.work-card:hover .work-card-thumb img{transform:scale(1.03)}
+.work-card-en{
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;font-weight:400;
+  letter-spacing:-.01em;line-height:1.2;
+  color:var(--black);margin-bottom:16px;margin-top:6px;
+}
+.work-card-ja{
+  font-size:13px;font-weight:200;
+  color:var(--gray-mid);
+  font-family:'Noto Sans JP',sans-serif;
+  margin-bottom:4px;
+}
+.work-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.work-tag{
+  font-size:13px;letter-spacing:.08em;
+  color:var(--gray-mid);
+  padding:3px 10px;
+  border:1px solid var(--line);
+}
+.work-card-link{
+  font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-mid);margin-top:auto;
+  display:flex;align-items:center;gap:8px;
+}
+.work-card-link::after{content:'→';transition:transform .2s}
+.work-card:hover .work-card-link{color:var(--black)}
+.work-card:hover .work-card-link::after{transform:translateX(4px)}
+
+/* DESIGN WORKS */
+.design-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+.design-card{
+  background:var(--white);
+  aspect-ratio:4/3;overflow:hidden;cursor:zoom-in;
+}
+.design-card img{width:100%;height:100%;object-fit:contain;padding:20px;display:block;transition:transform .4s ease;}
+.design-card:hover img{transform:scale(1.04)}
+
+/* CASE DETAIL */
+/* CASE DETAIL */
+.case-back{
+  padding:24px max(32px, calc((100% - 1060px) / 2));border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-mid);cursor:pointer;
+  transition:color .2s;text-decoration:none;
+  background:none;border:none;font-family:inherit;
+}
+.case-back:hover{color:var(--black)}
+.case-hero{padding:80px max(32px, calc((100% - 1060px) / 2)) 60px;border-bottom:1px solid var(--line);}
+.case-num{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:20px;}
+.case-title-en{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:clamp(24px,3.5vw,48px);
+  font-weight:300;letter-spacing:.04em;
+  line-height:1.3;color:var(--black);margin-bottom:8px;
+}
+.case-title-ja{
+  font-size:13px;font-weight:200;color:var(--gray-mid);
+  font-family:'Noto Sans JP',sans-serif;margin-bottom:48px;
+}
+.case-meta-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border-top:1px solid var(--line);
+}
+.case-meta-item{padding:24px 0;border-right:1px solid var(--line);padding-right:32px;margin-right:32px;}
+.case-meta-item:last-child{border-right:none}
+.case-meta-key{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:6px;}
+.case-meta-val{font-size:13px;font-weight:300;color:var(--black);}
+.case-body{padding:80px max(32px, calc((100% - 1060px) / 2));}
+.case-step{margin-bottom:64px;}
+.case-step-label{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gray-mid);margin-bottom:8px;
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.case-step-label-ja{
+  font-size:11px;font-weight:200;color:var(--gray-mid);
+  font-family:'Noto Sans JP',sans-serif;
+  letter-spacing:.06em;text-transform:none;
+}
+.case-step-content-en{
+  font-size:13px;font-weight:300;line-height:1.9;
+  color:var(--gray-dark);margin-bottom:24px;
+}
+.case-step-content-en ul, .case-step-content-ja ul{
+  list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;
+}
+.case-step-content-en ul li, .case-step-content-ja ul li{
+  padding-left:16px;line-height:1.75;position:relative;
+}
+.case-step-content-en ul li::before, .case-step-content-ja ul li::before{
+  content:'·';position:absolute;left:0;color:var(--gray-mid);font-size:18px;line-height:1.4;
+}
+.case-step-content-en ul li[data-num], .case-step-content-ja ul li[data-num]{
+  padding-left:0;
+}
+.case-step-content-en ul li[data-num]::before, .case-step-content-ja ul li[data-num]::before{
+  content:none;
+}
+.case-step-content-ja{
+  font-size:13px;font-weight:200;line-height:1.9;
+  color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;margin-bottom:40px;
+}
+.case-results{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;background:var(--line);margin:80px 0;
+}
+.case-result{background:var(--white);padding:40px 36px;}
+.case-result-num{
+  font-family:'DM Serif Display',serif;
+  font-size:52px;font-weight:400;
+  line-height:1;letter-spacing:-.03em;
+  color:var(--black);margin-bottom:8px;
+}
+.case-result-en{font-size:14px;font-weight:400;color:var(--black);margin-bottom:4px;}
+.case-result-ja{font-size:13px;font-weight:200;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;}
+.case-images{padding:0 max(32px, calc((100% - 1060px) / 2)) 80px;}
+.case-img-label{
+  font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-mid);margin-bottom:16px;
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.ba-grid{display:flex;flex-direction:column;gap:2px;}
+.ba-item{background:var(--white);}
+.ba-bar{
+  padding:12px 16px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--gray-bg);
+}
+.ba-bar-label{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-mid);}
+.ba-bar-link{
+  font-size:13px;letter-spacing:.08em;color:var(--gray-mid);
+  text-decoration:none;transition:color .2s;
+}
+.ba-bar-link:hover{color:var(--black)}
+.ba-img{overflow:hidden;}
+.ba-img img{width:100%;height:auto;display:block;object-fit:contain;}
+
+/* ABOUT */
+.about-hero{padding:100px max(32px, calc((100% - 1060px) / 2)) 80px;border-bottom:1px solid var(--line);}
+.about-label{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:24px;}
+.about-title-en{
+  font-family:'DM Sans',sans-serif;
+  font-size:clamp(32px,5vw,64px);
+  font-weight:400;line-height:1.1;
+  letter-spacing:-.02em;color:var(--black);margin-bottom:8px;
+}
+.about-title-ja{font-size:13px;font-weight:200;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;margin-bottom:56px;}
+.about-body{padding:80px max(32px, calc((100% - 1060px) / 2));}
+.about-desc-en{font-size:13px;font-weight:300;line-height:1.9;color:var(--gray-dark);margin-bottom:10px;}
+.about-desc-ja{font-size:13px;font-weight:200;line-height:1.9;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;}
+.about-section-label{
+  font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-mid);margin-bottom:24px;
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.about-skill-item{
+  display:inline-flex;flex-direction:column;align-items:flex-start;
+  padding:10px 16px;border:1px solid var(--line);margin:0 8px 8px 0;
+}
+.about-skill-en{font-size:12px;font-weight:400;color:var(--black);letter-spacing:.04em;}
+.about-skill-ja{font-size:11px;font-weight:200;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;margin-top:2px;}
+
+/* RESUME */
+.resume-hero{padding:100px max(32px, calc((100% - 1060px) / 2)) 60px;border-bottom:1px solid var(--line);}
+.resume-body{padding:0 max(32px, calc((100% - 1060px) / 2));}
+.resume-section{padding:60px 0;border-bottom:1px solid var(--line);}
+.resume-section-label{
+  font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-mid);margin-bottom:40px;
+}
+.resume-item{display:grid;grid-template-columns:180px 1fr;gap:0;margin-bottom:40px;}
+.resume-period{font-size:12px;color:var(--gray-mid);font-weight:200;padding-top:4px;}
+.resume-detail{}
+.resume-co-en{font-size:17px;font-weight:500;color:var(--black);letter-spacing:.01em;margin-bottom:3px;}
+.resume-co-ja{font-size:13px;font-weight:200;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;margin-bottom:12px;}
+.resume-role-en{
+  font-family:'DM Sans',sans-serif;
+  font-size:22px;font-weight:400;color:var(--black);
+  letter-spacing:-.01em;margin-bottom:4px;
+}
+.resume-role-ja{font-size:13px;font-weight:200;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;margin-bottom:14px;}
+.resume-desc-en{font-size:14px;font-weight:300;line-height:1.85;color:var(--gray-dark);margin-bottom:6px;}
+.resume-desc-ja{font-size:13px;font-weight:200;line-height:1.85;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;}
+
+/* CONTACT */
+.contact-section{padding:80px max(32px, calc((100% - 1060px) / 2));border-top:1px solid var(--line);}
+.contact-en{
+  font-family:'DM Sans',sans-serif;
+  font-size:clamp(24px,3vw,40px);
+  font-weight:400;color:var(--gray-dark);
+  letter-spacing:-.01em;line-height:1.4;margin-bottom:6px;
+}
+.contact-ja{font-size:13px;font-weight:200;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;margin-bottom:24px;}
+.contact-email{font-size:13px;font-weight:300;color:var(--gray-dark);}
+
+footer{
+  border-top:1px solid var(--line);padding:24px max(32px, calc((100% - 1060px) / 2));
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-copy{font-size:11px;color:var(--gray-light);letter-spacing:.08em;}
+
+@media(max-width:768px){
+  .work-grid{grid-template-columns:1fr}
+  .case-meta-row{grid-template-columns:1fr}
+  .case-results{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr}
+  .about-body{grid-template-columns:1fr;gap:40px}
+  .resume-item{grid-template-columns:1fr}
+  .design-grid{grid-template-columns:1fr 1fr}
+  .nav-links{gap:20px}
+}
+
+.fade-in{opacity:1;transform:none;}
+.fade-in.visible{opacity:1;transform:none;}
+</style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">NM<em>.</em></a>
+  <a href="#" class="nav-logo" onclick="showPage('work');return false;">Web Director</a>
   <div class="nav-links">
-    <a href="#skills" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'});return false;">スキル</a>
-    <a href="#experience" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'});return false;">経歴</a>
-    <a href="#achievements" onclick="document.getElementById('achievements').scrollIntoView({behavior:'smooth'});return false;">ディレクション実績</a>
-    <a href="#work" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'});return false;">デザイン実績</a>
+    <a href="#" onclick="showPage('work');return false;" class="active" id="nav-work">Work</a>
+    <a href="#" onclick="showPage('about');return false;" id="nav-about">About</a>
+    <a href="#" onclick="showPage('resume');return false;" id="nav-resume">Resume</a>
   </div>
 </nav>
 
-<section id="hero">
-  <div class="hero-inner fade">
-    <p class="hero-eyebrow">Portfolio</p>
-    <h1 class="hero-name">Web<br><em>Director</em></h1>
-    <span class="hero-name-ja">ポートフォリオ</span>
-    <p class="hero-role">
-      <span>Web Director</span>
-      <span>Web Designer</span>
-    </p>
-    <p class="hero-desc">同志社大学卒業後、新卒で楽天グループに入社。営業職を経てWebディレクターへ転身し、企画立案・ユーザー分析から制作進行・効果測定まで、PDCAを一気通貫で担当してきました。デザイン制作も自ら手を動かせる、上流から下流まで対応できるディレクターです。</p>
+<!-- WORK PAGE -->
+<div class="page active" id="page-work">
+  <div class="hero">
+    <div class="hero-label">Portfolio</div>
+    <h1 class="hero-name">Hello!<br>I'm <em style="font-style:italic;font-weight:600;">Web Director.</em></h1>
+    <span class="hero-name-ja"></span>
+    <p class="hero-desc-ja" style="font-size:18px;color:rgba(255,255,255,0.8);">A WEB Director at Rakuten for Rakuten Ichiba WEB.</p>
   </div>
-  </div>
-</section>
 
-<hr class="divider">
-
-<hr class="divider">
-
-<div class="section fade" id="skills">
-  <p class="sec-eyebrow">01 — Skills</p>
-  <h2 class="sec-heading">スキルセット</h2>
-
-  <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px;">
-
-    <!-- DESIGN -->
-    <div style="background:var(--white); border:1px solid var(--line); border-radius:8px; padding:32px 36px;">
-      <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--line);">
-        <div style="width:36px; height:36px; border-radius:8px; background:var(--paper); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">✏️</div>
-        <div>
-          <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:2px;">Design</div>
-          <div style="font-size:12px; font-weight:300; color:var(--ink-dim);">デザインツール・制作</div>
-        </div>
-      </div>
-      <div style="display:flex; flex-wrap:wrap; gap:8px;">
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">Figma</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">Adobe Photoshop</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">Adobe Illustrator</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">バナー・LP制作</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">ワイヤーフレーム</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">デザインカンプ</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">プロトタイプ</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">バナー制作</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">配色変更</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">ロゴ・アイコン</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">印刷物データ制作</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">複数サイズ展開</span>
-      </div>
+  <div class="work-section" style="padding-bottom:60px; border-bottom:1px solid var(--line);">
+    <div class="work-section-label">
+      Responsibility / <span>担当領域</span>
     </div>
+    <p style="font-size:15px;font-weight:300;color:var(--gray-dark);line-height:1.85;margin-bottom:6px;">全てのプロジェクトにおいて、企画立案・ユーザー分析からリリース後の効果測定まで、全工程を一気通貫でディレクションしています。</p>
+    <p style="font-size:12px;font-weight:200;color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;line-height:1.85;margin-bottom:48px;">I own all phases of web direction — from concept and user research through production, launch, and post-launch analysis — across all projects below.</p>
 
-    <!-- DIRECTION -->
-    <div style="background:var(--white); border:1px solid var(--line); border-radius:8px; padding:32px 36px;">
-      <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--line);">
-        <div style="width:36px; height:36px; border-radius:8px; background:var(--paper); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">🗂️</div>
-        <div>
-          <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:2px;">Direction</div>
-          <div style="font-size:12px; font-weight:300; color:var(--ink-dim);">ディレクション・分析</div>
-        </div>
-      </div>
-      <div style="display:flex; flex-wrap:wrap; gap:8px;">
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">Webディレクション</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">データ分析</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">A/Bテスト</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">Notion / Slack</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">企画立案</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">要件定義</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">スケジュール管理</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">関係者調整</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">ヒートマップ分析</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">課題特定</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">改善施策立案</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">効果検証</span>
-      </div>
-    </div>
-
-    <!-- CURRENTLY LEARNING -->
-    <div style="background:var(--white); border:1px solid var(--line); border-radius:8px; padding:32px 36px;">
-      <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--line);">
-        <div style="width:36px; height:36px; border-radius:8px; background:var(--paper); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">📚</div>
-        <div>
-          <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:2px;">Currently Learning</div>
-          <div style="font-size:12px; font-weight:300; color:var(--ink-dim);">デジタルハリウッド大学 夜間コース在学中</div>
-        </div>
-      </div>
-      <div style="display:flex; flex-wrap:wrap; gap:8px;">
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">HTML / CSS</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">UI/UXデザイン</span>
-        <span style="font-size:12px; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:6px 14px; font-weight:500;">グラフィックデザイン</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">ユーザー中心設計</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">情報設計</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">プロトタイピング</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">タイポグラフィ</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">レイアウト</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">ビジュアル表現</span>
-      </div>
-    </div>
-
-    <!-- CERTIFICATION -->
-    <div style="background:var(--white); border:1px solid var(--line); border-radius:8px; padding:32px 36px;">
-      <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--line);">
-        <div style="width:36px; height:36px; border-radius:8px; background:var(--paper); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">🏅</div>
-        <div>
-          <div style="font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:2px;">Certification</div>
-          <div style="font-size:12px; font-weight:300; color:var(--ink-dim);">資格・語学</div>
-        </div>
-      </div>
-      <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
-        <div style="font-size:13px; font-weight:500; color:var(--ink);">TOEIC</div>
-        <div style="font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; line-height:1; letter-spacing:-.03em; color:var(--ink);">800 <span style="font-size:16px; font-weight:300; color:var(--ink-dim); font-family:'DM Sans',sans-serif;">/ 990</span></div>
-      </div>
-      <div style="display:flex; flex-wrap:wrap; gap:8px;">
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">英語資料読解</span>
-        <span style="font-size:11px; color:var(--ink-mid); background:var(--paper); border:1px solid var(--line); border-radius:4px; padding:5px 12px;">社内外コミュニケーション対応可</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-<hr class="divider">
-
-<div class="section fade" id="experience">
-  <p class="sec-eyebrow">02 — Experience</p>
-  <h2 class="sec-heading">経歴</h2>
-  <p class="sec-sub">2020年に楽天グループへ新卒入社。営業職を経てWebディレクターへ転身しています。</p>
-
-  <div class="exp-layout">
-    <div class="exp-item">
-      <div class="exp-period">2016.04 — 2020.03<br>4年間</div>
-      <div class="exp-body">
-        <div class="exp-co">同志社大学</div>
-        <div class="exp-role" style="font-size:16px;">商学部商学科 卒業</div>
-        <p class="exp-desc">データ分析やマーケティングを専攻。2020年3月卒業。</p>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-period">2020.07 — 2022.12<br>2年5ヶ月<br><span style="font-size:11px; color:var(--gold);">出向</span></div>
-      <div class="exp-body">
-        <div class="exp-co">楽天モバイル株式会社 <span style="font-size:10px; color:var(--ink-dim); font-weight:400; letter-spacing:.06em;">（出向）</span></div>
-        <div class="exp-role">Sales</div>
-        <p class="exp-desc">基地局設置に関する法人営業を担当。新規・既存顧客どちらも担当し、ニーズヒアリングから資料作成・提案まで顧客折衝を一貫して担当。チームリーダーとして、メンバーのマネジメントも経験した。</p>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-period">2023.01 — 2026.03<br>3年3ヶ月</div>
-      <div class="exp-body">
-        <div class="exp-co">楽天グループ株式会社（楽天市場）</div>
-        <div class="exp-role">Web Director</div>
-        <p class="exp-desc">楽天市場のWebディレクションを担当。企画立案からリリースまで一貫して進行管理を行いながら、デザイン要件の定義・バナー制作・LPの一部デザインも自ら担当した。</p>
-
-        <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:20px;">
-          <div style="padding:16px 20px; border-left:2px solid var(--gold); background:var(--paper);">
-            <div style="font-size:11px; letter-spacing:.1em; color:var(--gold); margin-bottom:6px; font-weight:500;">2023.01 — 2025.03　ジャンルデザイン課</div>
-            <p style="font-size:13px; font-weight:300; color:var(--ink-mid); line-height:1.8;">コスメ・日用品・医薬品など消費財ジャンルを担当。シーズナル企画（季節特集・キャンペーン）も任され、バナー制作からページ設計まで一貫して対応。</p>
-          </div>
-          <div style="padding:16px 20px; border-left:2px solid var(--gold); background:var(--paper);">
-            <div style="font-size:11px; letter-spacing:.1em; color:var(--gold); margin-bottom:6px; font-weight:500;">2025.04 — 2026.03　サービスデザイン課</div>
-            <p style="font-size:13px; font-weight:300; color:var(--ink-mid); line-height:1.8;">楽券（ギフトチケットサービス）・スーパーDEAL（ポイントバックサービス）などを担当。サービスの特性に合わせたUI改善・販促施策のディレクションを行った。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-period">2026.01 — 現在</div>
-      <div class="exp-body">
-        <div class="exp-co">デジタルハリウッド大学</div>
-        <div class="exp-role" style="font-size:16px;">グラフィック・UI専攻コース 在学中</div>
-        <p class="exp-desc">グラフィックデザイン・UIデザインを体系的に学ぶため、2026年1月より入学。就業と並行して通学中。2026年7月卒業予定。</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<div class="section fade" id="achievements">
-  <p class="sec-eyebrow">03 — Achievements</p>
-  <h2 class="sec-heading">ディレクター実績</h2>
-  <p class="sec-sub" style="max-width:none;">楽天グループでのWebディレクターとして担当した主要プロジェクトです。</p>
-
-  <!-- 担当工程 -->
-  <div style="background:var(--white); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:40px; padding:36px 40px;">
-    <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:6px;">Scope of work</div>
-    <div style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--ink); margin-bottom:8px; letter-spacing:-.01em;">企画立案からPDCAまで、一貫して担当</div>
-    <p style="font-size:13px; font-weight:300; color:var(--ink-mid); line-height:1.85; margin-bottom:28px; max-width:640px;">シーズナル特集・サービスページ・バナーなど幅広いプロジェクトにおいて、上流の企画立案から制作進行・効果検証まで、全工程を一気通貫でディレクションしてきました。</p>
     <div style="overflow-x:auto;">
-      <div style="display:flex; align-items:center; gap:0; min-width:600px; padding:4px 0 16px;">
+      <div style="display:flex;align-items:stretch;gap:3px;min-width:700px;">
 
-        <div style="display:flex; flex-direction:column; align-items:center; gap:12px; min-width:130px;">
-          <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#1D9E75; font-weight:500;">Plan</div>
-          <div style="border:2px solid #1D9E75; border-radius:8px; padding:18px 20px; width:100%; box-sizing:border-box; text-align:center; display:flex; flex-direction:column; gap:7px;">
-            <div style="font-size:12px; color:#085041; line-height:1.6;">企画立案</div>
-            <div style="font-size:12px; color:#085041; line-height:1.6;">ユーザー分析</div>
-            <div style="font-size:12px; color:#085041; line-height:1.6;">競合調査</div>
-          </div>
+        <div style="background:#2a2a2a;padding:18px 20px;display:flex;align-items:center;justify-content:center;text-align:center;flex:1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);">
+          <span style="font-size:18px;font-weight:400;color:#fff;letter-spacing:.04em;line-height:1.4;">Concept &<br>Planning</span>
         </div>
 
-        <div style="padding:0 12px; padding-top:32px; flex-shrink:0;">
-          <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M0 7h15M11 2l6 5-6 5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div style="background:#2a2a2a;padding:18px 20px;display:flex;align-items:center;justify-content:center;text-align:center;flex:1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);">
+          <span style="font-size:18px;font-weight:400;color:#fff;letter-spacing:.04em;line-height:1.4;">User<br>Research</span>
         </div>
 
-        <div style="display:flex; flex-direction:column; align-items:center; gap:12px; min-width:130px;">
-          <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#7F77DD; font-weight:500;">Do</div>
-          <div style="border:2px solid #7F77DD; border-radius:8px; padding:18px 20px; width:100%; box-sizing:border-box; text-align:center; display:flex; flex-direction:column; gap:7px;">
-            <div style="font-size:12px; color:#3C3489; line-height:1.6;">制作指示</div>
-            <div style="font-size:12px; color:#3C3489; line-height:1.6;">進行管理</div>
-            <div style="font-size:12px; color:#3C3489; line-height:1.6;">バナー制作</div>
-          </div>
+        <div style="background:#2a2a2a;padding:18px 20px;display:flex;align-items:center;justify-content:center;text-align:center;flex:1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);">
+          <span style="font-size:18px;font-weight:400;color:#fff;letter-spacing:.04em;line-height:1.4;">Design<br>Direction</span>
         </div>
 
-        <div style="padding:0 12px; padding-top:32px; flex-shrink:0;">
-          <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M0 7h15M11 2l6 5-6 5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div style="background:#2a2a2a;padding:18px 20px;display:flex;align-items:center;justify-content:center;text-align:center;flex:1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);">
+          <span style="font-size:18px;font-weight:400;color:#fff;letter-spacing:.04em;line-height:1.4;">Production<br>Management</span>
         </div>
 
-        <div style="display:flex; flex-direction:column; align-items:center; gap:12px; min-width:130px;">
-          <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#BA7517; font-weight:500;">Check</div>
-          <div style="border:2px solid #BA7517; border-radius:8px; padding:18px 20px; width:100%; box-sizing:border-box; text-align:center; display:flex; flex-direction:column; gap:7px;">
-            <div style="font-size:12px; color:#633806; line-height:1.6;">品質確認</div>
-            <div style="font-size:12px; color:#633806; line-height:1.6;">リリース</div>
-            <div style="font-size:12px; color:#633806; line-height:1.6;">チェック</div>
-          </div>
+        <div style="background:#2a2a2a;padding:18px 20px;display:flex;align-items:center;justify-content:center;text-align:center;flex:1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);">
+          <span style="font-size:18px;font-weight:400;color:#fff;letter-spacing:.04em;line-height:1.4;">Review &<br>Launch</span>
         </div>
 
-        <div style="padding:0 12px; padding-top:32px; flex-shrink:0;">
-          <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M0 7h15M11 2l6 5-6 5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-
-        <div style="display:flex; flex-direction:column; align-items:center; gap:12px; min-width:130px;">
-          <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#D85A30; font-weight:500;">Action</div>
-          <div style="border:2px solid #D85A30; border-radius:8px; padding:18px 20px; width:100%; box-sizing:border-box; text-align:center; display:flex; flex-direction:column; gap:7px;">
-            <div style="font-size:12px; color:#712B13; line-height:1.6;">効果測定</div>
-            <div style="font-size:12px; color:#712B13; line-height:1.6;">KPI分析</div>
-            <div style="font-size:12px; color:#712B13; line-height:1.6;">次施策反映</div>
-          </div>
-        </div>
-
-        <div style="padding:0 12px; padding-top:32px; flex-shrink:0;">
-          <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M0 7h15M11 2l6 5-6 5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-
-        <div style="display:flex; flex-direction:column; align-items:center; gap:12px; min-width:100px;">
-          <div style="font-size:10px; letter-spacing:.18em; color:transparent;">-</div>
-          <div style="border:2px dashed var(--line); border-radius:8px; padding:18px 20px; width:100%; box-sizing:border-box; text-align:center; display:flex; flex-direction:column; gap:7px;">
-            <div style="font-size:12px; color:var(--ink-dim); line-height:1.6;">次回へ</div>
-            <div style="font-size:12px; color:var(--ink-dim); line-height:1.6;">反映</div>
-          </div>
+        <div style="background:#2a2a2a;padding:18px 20px;display:flex;align-items:center;justify-content:center;text-align:center;flex:1;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);">
+          <span style="font-size:18px;font-weight:400;color:#fff;letter-spacing:.04em;line-height:1.4;">Post Launch<br>Analysis</span>
         </div>
 
       </div>
+      <p style="font-size:12px;color:var(--gray-mid);text-align:center;margin-top:16px;font-family:'DM Sans',sans-serif;letter-spacing:.1em;">Design Process | デザインプロセス</p>
     </div>
   </div>
 
-  <div class="case-card">
-    <div class="case-header">
-      <div>
-        <div class="case-num">Case 01</div>
-        <div class="case-title">暑さ対策フェア</div>
-        <div class="case-tags">
-          <span class="case-tag">リニューアル</span>
-          <span class="case-tag">シーズナル特集</span>
-          <span class="case-tag">キャンペーン</span>
-        </div>
-      </div>
+  <div class="work-section">
+    <div class="work-section-label">
+      Selected Work / <span>主要プロジェクト</span>
     </div>
+    <div class="work-grid">
 
-    <!-- 上段：概要 + メタ（フル幅） -->
-    <div class="case-col" style="border-right:none; border-bottom:1px solid var(--line);">
-      <div class="case-col-label">概要</div>
-      <p class="case-desc">毎年行われている楽天市場のシーズナル特集で、夏の需要が高まるアイテムを紹介するページの<strong style="color:var(--ink);">デザインフルリニューアルを主導</strong>。外出需要の増加に伴い<strong style="color:var(--ink);">「おうちもおそとも快適に」</strong>をコンセプトに、ワクワク感のあるデザインへ刷新しました。</p>
-      <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-key">役割</span><span class="case-meta-val">Webディレクター（6名チームをリード）</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">関係部署</span><span class="case-meta-val">マーケティング部・広告部・営業部・デザインチーム</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">制作期間</span><span class="case-meta-val">約6ヶ月（コンセプト立案・広告設計3ヶ月 ＋ ページ制作3ヶ月）</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">担当範囲</span><span class="case-meta-val">コンセプト立案・ステークホルダー調整・進行管理・デザイン監修</span></div>
-      </div>
-    </div>
-
-    <!-- 中段：5カラム横長レイアウト -->
-    <div style="overflow-x:auto; border-bottom:1px solid var(--line);">
-      <div style="display:grid; grid-template-columns:repeat(5,minmax(180px,1fr)); min-width:800px;">
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #BA7517; background:#fdf5e6;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#854F0B; font-weight:500; margin-bottom:2px;">01 — KPI設定</div>
-            <div style="font-size:11px; color:#633806;">目標・ゴール</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #BA7517; line-height:1.75;">KPIを<strong style="color:var(--ink);">GMS前年比+10%・広告売上2,000万円以上</strong>と設定し、フルリニューアルに着手</div>
-          </div>
+      <a class="work-card" onclick="showCase(2);return false;" href="#">
+        <div class="work-card-num">01</div>
+        <div class="work-card-thumb">
+          <img src="images/img_02.jpg" alt="Summer Campaign">
         </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #E24B4A; background:#FCEBEB;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#A32D2D; font-weight:500; margin-bottom:2px;">02 — 分析・課題特定</div>
-            <div style="font-size:11px; color:#791F1F;">データから発見</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #E24B4A; line-height:1.75;"><strong style="color:var(--ink);">前年のヒートマップを分析</strong>し、わずかに掲載していた外出需要アイテムのクリック率が高いことを発見。ユーザーニーズと乖離したコンテンツ構成が課題と特定した</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #E24B4A; line-height:1.75;">ユーザー分析・需要調査を実施。<strong style="color:var(--ink);">フェス・大型イベント再開</strong>による外出需要の高まりを確認</div>
-          </div>
+        <div class="work-card-ja">暑さ対策フェア フルリニューアル</div>
+        <div class="work-card-en">Summer Heat Fair</div>
+        <div class="work-card-tags">
+          <span class="work-tag">Full Redesign</span>
+          <span class="work-tag">Team Lead</span>
+          <span class="work-tag">KPI ↑37%</span>
         </div>
+        <div class="work-card-link">View Case Study</div>
+      </a>
 
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #1D9E75; background:#E1F5EE;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0F6E56; font-weight:500; margin-bottom:2px;">03 — コンセプト・設計</div>
-            <div style="font-size:11px; color:#085041;">企画立案・広告設計</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #1D9E75; line-height:1.75;"><strong style="color:var(--ink);">「おうちもおそとも快適に」</strong>へコンセプトを刷新。短くキャッチーなコピーも自ら提案</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #1D9E75; line-height:1.75;"><strong style="color:var(--ink);">店舗とユーザー双方のニーズを満たす広告枠設計</strong>を実施し、広告売上2千万円以上を達成</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #1D9E75; line-height:1.75;">扱う商材・ジャンルが増えたことに着目し、<strong style="color:var(--ink);">ジャンル買い周り企画を自ら提案。予算を獲得し実施</strong>するまでを一貫して推進した</div>
-          </div>
+      <a class="work-card" onclick="showCase(1);return false;" href="#" style="transition-delay:.1s">
+        <div class="work-card-num">02</div>
+        <div class="work-card-thumb">
+          <img src="images/capture_cosme_campaign.jpg" alt="Cosmetics Campaign">
         </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #7F77DD; background:#f4f3fe;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#534AB7; font-weight:500; margin-bottom:2px;">04 — 制作・チームリード</div>
-            <div style="font-size:11px; color:#3C3489;">ディレクション・進行</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #7F77DD; line-height:1.75;"><strong style="color:var(--ink);">AD2名・デザイナー2名・コーダー2名（計6名）</strong>を統括。進行管理・外注調整も一手に担当</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #7F77DD; line-height:1.75;">約3ヶ月で<strong style="color:var(--ink);">バナー約120枚・ページ30枚以上</strong>のボリュームをリリース</div>
-          </div>
+        <div class="work-card-ja">若年層向けコスメキャンペーン 企画・ディレクション</div>
+        <div class="work-card-en">Youth Cosmetics Campaign</div>
+        <div class="work-card-tags">
+          <span class="work-tag">User Research</span>
+          <span class="work-tag">Campaign Planning</span>
+          <span class="work-tag">SNS Strategy</span>
         </div>
+        <div class="work-card-link">View Case Study</div>
+      </a>
 
-        <div>
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #D4537E; background:#FBEAF0;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#993556; font-weight:500; margin-bottom:2px;">05 — Design & Contents</div>
-            <div style="font-size:11px; color:#72243E;">制作・企画実施</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;"><strong style="color:var(--ink);">「暑さ」と「涼しさ」を色で表現</strong>しながら外出・おうちアイテムを訴求できるビジュアル設計に変更</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;"><strong style="color:var(--ink);">しろくまキャラクターを新たに制作</strong>し、ワクワク感のあるトーンへ刷新</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;"><strong style="color:var(--ink);">外出需要アイテムの掲載位置を上位に変更</strong>し、掲載商品のボリュームも拡充</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;">買い周りキャンペーンを企画・実施。<strong style="color:var(--ink);">3ジャンル購入でポイント7倍</strong>の予算をマーケティング部から調達し実現</div>
-          </div>
+      <a class="work-card" onclick="showCase(3);return false;" href="#" style="transition-delay:.2s">
+        <div class="work-card-num">03</div>
+        <div class="work-card-thumb">
+          <img src="images/case2_after.jpg" alt="Rakken">
         </div>
-
-      </div>
-    </div>
-
-    <!-- 下段：成果（フル幅） -->
-    <div class="case-col" style="border-right:none;">
-      <div class="case-col-label">成果</div>
-      <div class="case-results" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
-        <div class="case-result-item">
-          <div class="case-result-num">↑37<sup>%</sup></div>
-          <div class="case-result-label">
-            <strong>GMS 前年比改善</strong>
-            デザインフルリニューアルとコンセプト刷新により、流通総額が前年比+37%を達成
-          </div>
+        <div class="work-card-ja">楽券 トップページ改善</div>
+        <div class="work-card-en">Rakken UI/UX Redesign</div>
+        <div class="work-card-tags">
+          <span class="work-tag">UI/UX</span>
+          <span class="work-tag">Data Analysis</span>
+          <span class="work-tag">Bounce ↓4%</span>
         </div>
-        <div class="case-result-item">
-          <div class="case-result-num">13<sup>億+</sup></div>
-          <div class="case-result-label">
-            <strong>ページ経由GMS達成</strong>
-            シーズナル特集ページ単体で13億円以上の流通を記録
-          </div>
-        </div>
-        <div class="case-result-item">
-          <div class="case-result-num">2<sup>千万+</sup></div>
-          <div class="case-result-label">
-            <strong>広告売上達成</strong>
-            特集ページへの広告掲載により、2千万円以上の広告売上を達成
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-img-area">
-      <div class="case-col-label" style="padding:0; border:none; margin-bottom:12px;">ページイメージ・Before / After</div>
-      <div class="case-before-after" style="grid-template-columns:1fr;">
-        <div class="ba-item">
-          <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 16px; background:var(--paper); border:1px solid var(--line); border-bottom:none; border-radius:4px 4px 0 0;">
-            <span style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); font-weight:400;">Before</span>
-            <a href="https://web.archive.org/web/20230602144954/https://event.rakuten.co.jp/genre/summer/" target="_blank" rel="noopener" style="font-size:11px; letter-spacing:.08em; color:var(--gold); text-decoration:none; border:1px solid var(--gold); border-radius:2px; padding:4px 12px; transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--gold)'">アーカイブを見る ↗</a>
-          </div>
-          <div class="ba-img" id="ba-case1-before" style="background:var(--paper); border:1px solid var(--line); border-radius:0 0 4px 4px; overflow:hidden; cursor:zoom-in;"><img src="images/img_01.png" alt="暑さ対策フェア Before" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-        </div>
-        <div class="ba-item">
-          <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 16px; background:var(--paper); border:1px solid var(--line); border-bottom:none; border-radius:4px 4px 0 0;">
-            <span style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); font-weight:400;">After</span>
-            <a href="https://event.rakuten.co.jp/genre/summer/" target="_blank" rel="noopener" style="font-size:11px; letter-spacing:.08em; color:var(--gold); text-decoration:none; border:1px solid var(--gold); border-radius:2px; padding:4px 12px; transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--gold)'">サイトを見る ↗</a>
-          </div>
-          <div class="ba-img" id="ba-case1-after" style="background:var(--paper); border:1px solid var(--line); border-radius:0 0 4px 4px; overflow:hidden; cursor:zoom-in;"><img src="images/img_02.jpg" alt="暑さ対策フェア After" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="case-card">
-    <div class="case-header">
-      <div>
-        <div class="case-num">Case 02</div>
-        <div class="case-title">若年層向けコスメキャンペーン 企画・ディレクション</div>
-        <div class="case-tags">
-          <span class="case-tag">新規企画立案</span>
-          <span class="case-tag">ユーザーインタビュー</span>
-          <span class="case-tag">競合調査</span>
-          <span class="case-tag">SNS戦略</span>
-          <span class="case-tag">デザインディレクション</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 上段：概要 + メタ -->
-    <div class="case-col" style="border-right:none; border-bottom:1px solid var(--line);">
-      <div class="case-col-label">概要</div>
-      <p class="case-desc">楽天市場における<strong style="color:var(--ink);">若年層（18〜29歳）の定着率向上</strong>を会社課題として受け、コスメジャンルでの新規キャンペーン企画を立案・ディレクション。ユーザーインタビュー・競合調査をもとに課題を特定し、SNS戦略・デザイントーンマナの刷新まで上流から一貫して担当しました。異動により効果測定は未実施ですが、<strong style="color:var(--ink);">18〜29歳の新規ユーザー数・CVR・リピート率</strong>を一次・二次指標として設計しており、若年層の獲得から定着までを一貫して追う計画でした。<strong style="color:var(--ink);">企画立案〜リリースまでのプロセス全体</strong>を主導した案件です。</p>
-      <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-key">役割</span><span class="case-meta-val">Webディレクター（企画立案〜リリース）</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">ターゲット</span><span class="case-meta-val">18〜29歳 コスメ購入ユーザー</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">担当範囲</span><span class="case-meta-val">課題設定・ユーザーインタビュー・競合調査・SNS戦略・デザインディレクション・制作進行</span></div>
-      </div>
-    </div>
-
-    <!-- 中段：5カラム横長レイアウト -->
-    <div style="overflow-x:auto; border-bottom:1px solid var(--line);">
-      <div style="display:grid; grid-template-columns:repeat(5,minmax(180px,1fr)); min-width:800px;">
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #BA7517; background:#fdf5e6;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#854F0B; font-weight:500; margin-bottom:2px;">01 — 課題設定</div>
-            <div style="font-size:11px; color:#633806;">背景・仮説</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #BA7517; line-height:1.75;">楽天のメインユーザーは30〜50代女性。ランキングにも同世代のコスメが並ぶ構造になっていた</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #BA7517; line-height:1.75;">若年層から「<strong style="color:var(--ink);">中年向けのサイト</strong>」と認識されているという仮説を立て、ユーザーインタビューで検証へ</div>
-          </div>
-        </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #E24B4A; background:#FCEBEB;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#A32D2D; font-weight:500; margin-bottom:2px;">02 — ユーザー調査</div>
-            <div style="font-size:11px; color:#791F1F;">発見した課題・バリア</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #E24B4A; line-height:1.75;"><strong style="color:var(--ink);">コスメ購買の起点はQoo10</strong>。ランキング確認→インフルエンサー参考→メガ割まとめ買いが定着</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #E24B4A; line-height:1.75;"><strong style="color:var(--ink);">ポイント還元より即時割引</strong>を好む。「払う金額が減る方がお得」という若年層の価値観</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #E24B4A; line-height:1.75;">楽天ユーザーでも<strong style="color:var(--ink);">商材で使い分け</strong>。コスメはQoo10・日用品はAmazonで楽天はコスメ購入の選択肢外</div>
-          </div>
-        </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #1D9E75; background:#E1F5EE;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0F6E56; font-weight:500; margin-bottom:2px;">03 — 競合分析</div>
-            <div style="font-size:11px; color:#085041;">発見した楽天の強み・勝機</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #1D9E75; line-height:1.75;"><strong style="color:var(--ink);">信頼性はQoo10より高い</strong>。サーバーダウン・不審広告・決済不安など、Qoo10への不信感が若年層にも存在していた</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #1D9E75; line-height:1.75;">トレンドと割引が強化されれば<strong style="color:var(--ink);">挽回できる可能性あり</strong>。信頼という既存の強みを活かせる</div>
-          </div>
-        </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #7F77DD; background:#f4f3fe;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#534AB7; font-weight:500; margin-bottom:2px;">04 — 施策設計</div>
-            <div style="font-size:11px; color:#3C3489;">調査から施策へ</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #7F77DD; line-height:1.75;"><strong style="color:var(--ink);">同世代限定ランキング新設</strong>。10〜20代の購買データのみを抽出し「同世代が買うコスメ」を可視化</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #7F77DD; line-height:1.75;">訴求を<strong style="color:var(--ink);">ポイントから「4,000円OFF」「最大30%OFF」といった即時割引</strong>に転換。Qoo10をベンチマークに若年層の価値観に合わせた設計</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #7F77DD; line-height:1.75;"><strong style="color:var(--ink);">インフルエンサー起用・アフィリエイト促進</strong>を軸に、若年層に支持されるインフルエンサーの選定と、施策を象徴する企画名の検討も担当</div>
-          </div>
-        </div>
-
-        <div>
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #D4537E; background:#FBEAF0;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#993556; font-weight:500; margin-bottom:2px;">05 — デザイン</div>
-            <div style="font-size:11px; color:#72243E;">ディレクション</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;">若年層向けを意識し、トレンドである<strong style="color:var(--ink);">バルーン文字や色味を起用</strong>。いい意味で「楽天らしくなさ」を追求したトンマナへ刷新</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;">「<strong style="color:var(--ink);">Beauty Buzz</strong>」をSNS拡散を意識して命名。ビジュアルとコピー全体の方向性を上流から定義</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- 下段：ページイメージ -->
-    <div class="case-img-area">
-      <div class="case-col-label" style="padding:0; border:none; margin-bottom:12px;">ページイメージ</div>
-      <div style="border:1px solid var(--line); border-radius:4px; overflow:hidden;">
-        <img src="images/capture_cosme_campaign.jpg" alt="コスメキャンペーン" loading="lazy" style="width:100%; display:block; object-fit:cover;">
-      </div>
-      <div style="margin-top:12px;">
-        <a href="https://event.rakuten.co.jp/beauty/z/campaign/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; font-size:11px; letter-spacing:.08em; color:var(--gold); text-decoration:none; border:1px solid var(--gold); border-radius:2px; padding:6px 14px; transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--gold)'">サイトを見る ↗</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- CASE 03 -->
-  <div class="case-card">
-    <div class="case-header">
-      <div>
-        <div class="case-num">Case 03</div>
-        <div class="case-title">楽券 トップページ改善</div>
-        <div class="case-tags">
-          <span class="case-tag">UI/UX改善</span>
-          <span class="case-tag">リニューアル</span>
-          <span class="case-tag">ギフトサービス</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 上段：概要 + メタ（フル幅） -->
-    <div class="case-col" style="border-right:none; border-bottom:1px solid var(--line);">
-      <div class="case-col-label">概要</div>
-      <p class="case-desc">楽天市場のギフトチケットサービス「楽券」の<strong style="color:var(--ink);">UIUX改善を担当</strong>。楽天市場でのギフト需要を拡大するため、<strong style="color:var(--ink);">サイト全体のコンセプト・設計を見直し</strong>ました。競合他社分析・コンセプト立案から要件定義、デザイナーへの指示まで<strong style="color:var(--ink);">一貫して担当</strong>。</p>
-      <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-key">役割</span><span class="case-meta-val">Webディレクター</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">関係部署</span><span class="case-meta-val">事業部・デザインチーム</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">制作期間</span><span class="case-meta-val">約4ヶ月（競合分析・コンセプト立案2ヶ月 ＋ ページ制作2ヶ月）</span></div>
-        <div class="case-meta-row"><span class="case-meta-key">担当範囲</span><span class="case-meta-val">競合分析・コンセプト立案・要件定義・デザイナー指示・進行管理</span></div>
-      </div>
-    </div>
-
-    <!-- 中段：5カラム横長レイアウト -->
-    <div style="overflow-x:auto; border-bottom:1px solid var(--line);">
-      <div style="display:grid; grid-template-columns:repeat(5,minmax(180px,1fr)); min-width:800px;">
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #BA7517; background:#fdf5e6;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#854F0B; font-weight:500; margin-bottom:2px;">01 — 課題設定</div>
-            <div style="font-size:11px; color:#633806;">背景・ゴール</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #BA7517; line-height:1.75;">認知度が低く<strong style="color:var(--ink);">新規ユーザー獲得が課題</strong>だった楽券を<strong style="color:var(--ink);">「楽天でギフトを送るなら楽券」と第一想起されるブランド</strong>へ育てることをゴールに設定</div>
-          </div>
-        </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #E24B4A; background:#FCEBEB;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#A32D2D; font-weight:500; margin-bottom:2px;">02 — 数値分析</div>
-            <div style="font-size:11px; color:#791F1F;">課題の特定</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #E24B4A; line-height:1.75;">既存ページを分析し<strong style="color:var(--ink);">クリック率が低下しているコンテンツ</strong>と<strong style="color:var(--ink);">流入の大半が既存ユーザー</strong>であることを特定</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #E24B4A; line-height:1.75;">ページの長さ・重複コンテンツが課題と判断。<strong style="color:var(--ink);">LINEギフトとの競合分析</strong>で新規向け刷新の必要性を確認</div>
-          </div>
-        </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #1D9E75; background:#E1F5EE;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#0F6E56; font-weight:500; margin-bottom:2px;">03 — 設計・提案</div>
-            <div style="font-size:11px; color:#085041;">ワイヤーフレーム</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #1D9E75; line-height:1.75;"><strong style="color:var(--ink);">Figmaでワイヤーフレームを作成</strong>。1スクロールで完結するようボタンサイズ・バナー幅を最適化し離脱を抑制</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #1D9E75; line-height:1.75;">シーズナル企画との相互露出や<strong style="color:var(--ink);">ギフトシーンでの楽券想起を促す導線設計</strong>も盛り込み提案</div>
-          </div>
-        </div>
-
-        <div style="border-right:1px solid var(--line);">
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #7F77DD; background:#f4f3fe;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#534AB7; font-weight:500; margin-bottom:2px;">04 — 制作・チームリード</div>
-            <div style="font-size:11px; color:#3C3489;">ディレクション・進行</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #7F77DD; line-height:1.75;"><strong style="color:var(--ink);">事業部との折衝・デザイナー1名・外注調整を統括</strong>しプロジェクト全体を推進</div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #7F77DD; line-height:1.75;">約2ヶ月で<strong style="color:var(--ink);">ページ2枚のフルリニューアル</strong>を完遂</div>
-          </div>
-        </div>
-
-        <div>
-          <div style="padding:14px 20px 12px; border-bottom:3px solid #D4537E; background:#FBEAF0;">
-            <div style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#993556; font-weight:500; margin-bottom:2px;">05 — 効果測定</div>
-            <div style="font-size:11px; color:#72243E;">KPI改善</div>
-          </div>
-          <div style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;">UIUXリニューアルにより<strong style="color:var(--ink);">離脱率を4%改善</strong></div>
-            <div style="font-size:12px; color:var(--ink-mid); padding:8px 10px; background:var(--paper); border-left:2px solid #D4537E; line-height:1.75;">キャンペーン露出提案により<strong style="color:var(--ink);">ページVisits（PV）7%改善</strong>・既存ユーザー以外からの流入増加に成功</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- 下段：成果（フル幅） -->
-    <div class="case-col" style="border-right:none;">
-      <div class="case-col-label">成果</div>
-      <div class="case-results" style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px;">
-        <div class="case-result-item">
-          <div class="case-result-num">↓4<sup>%</sup></div>
-          <div class="case-result-label">
-            <strong>離脱率改善</strong>
-            UIUXのフルリニューアルにより、課題だった離脱率を4%改善
-          </div>
-        </div>
-        <div class="case-result-item">
-          <div class="case-result-num">↑7<sup>%</sup></div>
-          <div class="case-result-label">
-            <strong>ページVisits（PV）改善</strong>
-            ギフティングと相性のよいキャンペーン企画へのバナー露出を提案し、既存ユーザー以外からの流入増加に成功
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-img-area">
-      <div class="case-col-label" style="padding:0; border:none; margin-bottom:12px;">ページイメージ・Before / After</div>
-      <div class="case-before-after" style="grid-template-columns:1fr;">
-        <div class="ba-item">
-          <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 16px; background:var(--paper); border:1px solid var(--line); border-bottom:none; border-radius:4px 4px 0 0;">
-            <span style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); font-weight:400;">Before</span>
-            <a href="https://web.archive.org/web/20250915150709/https://event.rakuten.co.jp/rakken/" target="_blank" rel="noopener" style="font-size:11px; letter-spacing:.08em; color:var(--gold); text-decoration:none; border:1px solid var(--gold); border-radius:2px; padding:4px 12px; transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--gold)'">アーカイブを見る ↗</a>
-          </div>
-          <div class="ba-img" id="ba-case2-before" style="background:var(--paper); border:1px solid var(--line); border-radius:0 0 4px 4px; overflow:hidden; cursor:zoom-in;"><img src="images/case2_before.jpg" alt="楽券 Before" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-        </div>
-        <div class="ba-item">
-          <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 16px; background:var(--paper); border:1px solid var(--line); border-bottom:none; border-radius:4px 4px 0 0;">
-            <span style="font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); font-weight:400;">After</span>
-            <a href="https://event.rakuten.co.jp/rakken/" target="_blank" rel="noopener" style="font-size:11px; letter-spacing:.08em; color:var(--gold); text-decoration:none; border:1px solid var(--gold); border-radius:2px; padding:4px 12px; transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--gold)'">サイトを見る ↗</a>
-          </div>
-          <div class="ba-img" id="ba-case2-after" style="background:var(--paper); border:1px solid var(--line); border-radius:0 0 4px 4px; overflow:hidden; cursor:zoom-in;"><img src="images/case2_after.jpg" alt="楽券 After" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 担当企画一覧 -->
-  <div style="margin-top:40px;">
-    <p class="sec-eyebrow" style="margin-bottom:12px;">担当企画一覧</p>
-    <p class="case-desc" style="margin-bottom:24px; color:var(--ink-mid);">上記のほかにも、コスメ・日用品・医薬品ジャンルを中心にさまざまな企画のディレクションを担当してきました。</p>
-
-    <!-- コスメ企画 -->
-    <div style="margin-bottom:32px;">
-      <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line);">コスメ企画</div>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
-
-        <a href="https://event.rakuten.co.jp/beauty/brand/official/" target="_blank" rel="noopener" style="text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--white); transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-          <div style="aspect-ratio:16/9; background:var(--paper); overflow:hidden; display:flex; align-items:center; justify-content:center;">
-            <img src="images/capture_cosme_brand.jpg" alt="コスメブランド公式" loading="lazy" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=\'font-size:11px;color:var(--ink-dim);\'>画像準備中</span>'">
-          </div>
-          <div style="padding:12px 16px; border-top:1px solid var(--line);">
-            <div style="font-size:12px; font-weight:500; color:var(--ink); margin-bottom:2px;">コスメ ブランド公式</div>
-            <div style="font-size:11px; color:var(--gold);">event.rakuten.co.jp ↗</div>
-          </div>
-        </a>
-
-        <a href="https://event.rakuten.co.jp/medicine/colorcontacts/campaign/" target="_blank" rel="noopener" style="text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--white); transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-          <div style="aspect-ratio:16/9; background:var(--paper); overflow:hidden; display:flex; align-items:center; justify-content:center;">
-            <img src="images/capture_colorcontacts.jpg" alt="カラコンキャンペーン" loading="lazy" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=\'font-size:11px;color:var(--ink-dim);\'>画像準備中</span>'">
-          </div>
-          <div style="padding:12px 16px; border-top:1px solid var(--line);">
-            <div style="font-size:12px; font-weight:500; color:var(--ink); margin-bottom:2px;">カラコン キャンペーン</div>
-            <div style="font-size:11px; color:var(--gold);">event.rakuten.co.jp ↗</div>
-          </div>
-        </a>
-
-        <a href="https://event.rakuten.co.jp/health/femcare/" target="_blank" rel="noopener" style="text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--white); transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-          <div style="aspect-ratio:16/9; background:var(--paper); overflow:hidden; display:flex; align-items:center; justify-content:center;">
-            <img src="images/capture_femcare.jpg" alt="フェムケア特集" loading="lazy" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=\'font-size:11px;color:var(--ink-dim);\'>画像準備中</span>'">
-          </div>
-          <div style="padding:12px 16px; border-top:1px solid var(--line);">
-            <div style="font-size:12px; font-weight:500; color:var(--ink); margin-bottom:2px;">フェムケア特集</div>
-            <div style="font-size:11px; color:var(--gold);">event.rakuten.co.jp ↗</div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- 日用品消耗品企画 -->
-    <div style="margin-bottom:32px;">
-      <div style="font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line);">日用品・消耗品企画</div>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
-
-        <a href="https://fast-delivery-mart.rakuten.co.jp/" target="_blank" rel="noopener" style="text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--white); transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-          <div style="aspect-ratio:16/9; background:var(--paper); overflow:hidden; display:flex; align-items:center; justify-content:center;">
-            <img src="images/capture_fast_delivery.jpg" alt="楽天即配マート" loading="lazy" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=\'font-size:11px;color:var(--ink-dim);\'>画像準備中</span>'">
-          </div>
-          <div style="padding:12px 16px; border-top:1px solid var(--line);">
-            <div style="font-size:12px; font-weight:500; color:var(--ink); margin-bottom:2px;">楽天即配マート</div>
-            <div style="font-size:11px; color:var(--gold);">rakuten.co.jp ↗</div>
-          </div>
-        </a>
-
-        <a href="https://event.rakuten.co.jp/health/protein/" target="_blank" rel="noopener" style="text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--white); transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-          <div style="aspect-ratio:16/9; background:var(--paper); overflow:hidden; display:flex; align-items:center; justify-content:center;">
-            <img src="images/capture_protein.jpg" alt="プロテイン特集" loading="lazy" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=\'font-size:11px;color:var(--ink-dim);\'>画像準備中</span>'">
-          </div>
-          <div style="padding:12px 16px; border-top:1px solid var(--line);">
-            <div style="font-size:12px; font-weight:500; color:var(--ink); margin-bottom:2px;">プロテイン特集</div>
-            <div style="font-size:11px; color:var(--gold);">event.rakuten.co.jp ↗</div>
-          </div>
-        </a>
-
-        <a href="https://event.rakuten.co.jp/medicine/contactlens/coupon/new/" target="_blank" rel="noopener" style="text-decoration:none; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--white); transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow=''">
-          <div style="aspect-ratio:16/9; background:var(--paper); overflow:hidden; display:flex; align-items:center; justify-content:center;">
-            <img src="images/capture_contactlens_coupon.jpg" alt="コンタクトレンズクーポン" loading="lazy" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.innerHTML='<span style=\'font-size:11px;color:var(--ink-dim);\'>画像準備中</span>'">
-          </div>
-          <div style="padding:12px 16px; border-top:1px solid var(--line);">
-            <div style="font-size:12px; font-weight:500; color:var(--ink); margin-bottom:2px;">コンタクトレンズ クーポン</div>
-            <div style="font-size:11px; color:var(--gold);">event.rakuten.co.jp ↗</div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- その他の制作実績 -->
-  <div style="margin-top:40px;">
-    <p class="sec-eyebrow" style="margin-bottom:12px;">その他の制作実績</p>
-    <p class="case-desc" style="margin-bottom:24px; color:var(--ink-mid);">WEBページに加えて、<strong style="color:var(--ink);">DTP・動画・メルマガ</strong>など幅広い制作にディレクターとして携わってきました。</p>
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden;">
-
-      <!-- DTP -->
-      <div style="background:var(--white); padding:36px 40px;">
-        <div class="case-col-label" style="margin-bottom:16px;">DTPデザイン</div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
-          <span class="case-tag">DM</span>
-          <span class="case-tag">ポスター</span>
-          <span class="case-tag">ディレクション</span>
-        </div>
-        <p class="case-desc">コンタクトレンズ新規ユーザー向けDM、および楽天即配マート（現：楽天24Express）サービス立ち上げ時の社内外掲載ポスターをディレクション。</p>
-      </div>
-
-      <!-- 動画広告 -->
-      <div style="background:var(--white); padding:36px 40px;">
-        <div class="case-col-label" style="margin-bottom:16px;">動画広告</div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
-          <span class="case-tag">TVer</span>
-          <span class="case-tag">タクシー広告</span>
-          <span class="case-tag">ディレクション</span>
-        </div>
-        <p class="case-desc">楽天即配マート（現：楽天24Express）の認知拡大を目的に、TVerおよびタクシー広告向け約40秒の動画広告をディレクション。</p>
-      </div>
-
-      <!-- メルマガ -->
-      <div style="background:var(--white); padding:36px 40px;">
-        <div class="case-col-label" style="margin-bottom:16px;">メルマガ</div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
-          <span class="case-tag">コスメ</span>
-          <span class="case-tag">日用品</span>
-          <span class="case-tag">医薬品</span>
-        </div>
-        <p class="case-desc">コスメ・日用品・医薬品ジャンルを担当。該当ジャンルに興味を持つユーザー約100万人向けにメルマガ配信をディレクション。</p>
-      </div>
-
-      <!-- 読み物コンテンツ -->
-      <div style="background:var(--white); padding:36px 40px;">
-        <div class="case-col-label" style="margin-bottom:16px;">読み物コンテンツ</div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
-          <span class="case-tag">カタログLP</span>
-          <span class="case-tag">ディレクション</span>
-        </div>
-        <p class="case-desc">販促にとどまらず、ユーザーに役立つ情報を届ける読み物コンテンツも制作。プロテインの種類・飲み方ガイドや、日用品の賢い買い方まとめなど、SEOと読者体験を意識した記事LPをディレクション。</p>
-        <div style="display:flex; flex-direction:column; gap:8px; margin-top:16px;">
-          <a href="https://event.rakuten.co.jp/health/protein/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; font-size:11px; letter-spacing:.08em; color:var(--gold); text-decoration:none; border:1px solid var(--gold); border-radius:2px; padding:6px 14px; width:fit-content; transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--gold)'">プロテインガイド ↗</a>
-          <a href="https://event.rakuten.co.jp/daily/freeshipping/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; font-size:11px; letter-spacing:.08em; color:var(--gold); text-decoration:none; border:1px solid var(--gold); border-radius:2px; padding:6px 14px; width:fit-content; transition:background .2s,color .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='var(--gold)'">日用品の買い方まとめ ↗</a>
-        </div>
-      </div>
+        <div class="work-card-link">View Case Study</div>
+      </a>
 
     </div>
   </div>
 
+  <div class="contact-section">
+    <p class="contact-en">Thank you for viewing<br>my portfolio.</p>
+    <p class="contact-ja">ご覧いただき、ありがとうございました。</p>
+    <div class="contact-email" id="contact-mail-work"></div>
+  </div>
+  <footer>
+    <span class="footer-copy">© 2026 Web Director</span>
+    <span class="footer-copy" style="font-family:'DM Sans',sans-serif;font-size:12px;font-weight:300;letter-spacing:.1em;color:#bbb;">Web Director</span>
+  </footer>
 </div>
 
-<hr class="divider">
+<!-- CASE DETAIL PAGE -->
+<div class="page" id="page-case">
+  <button class="case-back" onclick="showPage('work')">← Back to Work</button>
+  <div id="case-content"></div>
+</div>
 
-<div class="section fade" id="work">
-  <p class="sec-eyebrow">04 — Design Works</p>
-  <h2 class="sec-heading">デザイン実績</h2>
-  <p class="sec-sub" style="max-width:none;">ディレクション業務と並行して、実際に手を動かして制作したバナークリエイティブです。</p>
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div style="display:grid;grid-template-columns:1fr 220px;gap:60px;align-items:start;">
+      <div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,48px);font-weight:400;color:var(--black);letter-spacing:-.02em;margin-bottom:6px;line-height:1.1;">About me <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(16px,2vw,24px);font-weight:200;color:var(--gray-mid);letter-spacing:.1em;">| 自己紹介</span></h2>
+        <div style="width:40px;height:1px;background:var(--black);margin-bottom:32px;"></div>
+        <p style="font-size:15px;font-weight:400;line-height:1.9;color:var(--black);margin-bottom:10px;">楽天グループ株式会社にて、約3年間「楽天市場Webサイト」のディレクターとして、企画立案から効果測定まで、ユーザー体験の創出や改善に従事。</p>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--gray-dark);margin-bottom:10px;">元々は営業職としてキャリアをスタートしたが、人々の体験を豊かにするUXデザインやクリエイティブに強く魅力を感じており、社内公募制度を通じてディレクターへ転身。</p>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--gray-dark);margin-bottom:40px;">現在は、多様なステークホルダーと協働し、データドリブンなアプローチで、ユーザー体験の向上と事業成長の両立を目指している。</p>
+        <p style="font-size:13px;font-weight:200;line-height:1.9;color:var(--gray-mid);margin-bottom:6px;"><strong>A Web Director with 3+ years of experience leading end-to-end digital direction at Rakuten Ichiba</strong>, one of Japan's largest e-commerce platforms.</p>
+        <p style="font-size:13px;font-weight:200;line-height:1.9;color:var(--gray-mid);">I began my career in sales, but was drawn to the power of UX and creative direction to optimize experiences and create value beyond expectations. Through an internal career transition, I became a Web Director — and now collaborate with diverse stakeholders to balance user experience and business growth through a data-driven approach.</p>
+      </div>
+      <div style="display:flex;justify-content:center;padding-top:8px;">
 
-
-
-    <div class="slider-wrap" id="bannerSlider">
-    <div class="slider-track" id="sliderTrack">
-
-    <div class="slide">
-      <div class="slide-thumb" onclick="openModal(this)">
-        <img src="images/img_03.png" alt="クーポンバナー" loading="lazy">
-      </div>
-      <div class="slide-info">
-                <div class="slide-title">クーポンバナー</div>
-        <div class="slide-desc">PC・SP・アプリ向けに複数サイズへリサイズ展開。特集全体で13億円以上の流通を達成。</div>
-        <div class="slide-counter">1 / 6</div>
       </div>
     </div>
-    <div class="slide">
-      <div class="slide-thumb" onclick="openModal(this)">
-        <img src="images/img_04.jpg" alt="キャンペーンバナー" loading="lazy">
-      </div>
-      <div class="slide-info">
-                <div class="slide-title">キャンペーンバナー</div>
-        <div class="slide-desc">流通1億円/月のキャンペーンページ用バナーを制作。各種サイズ展開と商材の入れ替えをPhotoshopで対応。</div>
-        <div class="slide-counter">2 / 6</div>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="slide-thumb" onclick="openModal(this)">
-        <img src="images/img_05.jpg" alt="新規会員獲得バナー" loading="lazy">
-      </div>
-      <div class="slide-info">
-                <div class="slide-title">新規会員獲得バナー</div>
-        <div class="slide-desc">新規サービス立ち上げに伴い、新規会員への訴求バナーを制作。A/Bテストを実施した上で配信。</div>
-        <div class="slide-counter">3 / 6</div>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="slide-thumb" onclick="openModal(this)">
-        <img src="images/img_06.jpg" alt="SNS広告クリエイティブ" loading="lazy">
-      </div>
-      <div class="slide-info">
-                <div class="slide-title">SNS広告クリエイティブ</div>
-        <div class="slide-desc">SNS用に各種サイズを制作。目に止まるよう商材配置を工夫し、複数パターンを量産。</div>
-        <div class="slide-counter">4 / 6</div>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="slide-thumb" onclick="openModal(this)">
-        <img src="images/img_07.jpg" alt="スポンサードコンテンツ" loading="lazy">
-      </div>
-      <div class="slide-info">
-                <div class="slide-title">スポンサードコンテンツ</div>
-        <div class="slide-desc">ブランドガイドラインを遵守しながら、自然なコンテンツ訴求を実現。</div>
-        <div class="slide-counter">5 / 6</div>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="slide-thumb" style="display:grid; grid-template-columns:1fr 1fr; gap:0; cursor:default;">
-        <div style="overflow:hidden; display:flex; align-items:center; justify-content:center; padding:16px; border-right:1px solid var(--line);">
-          <img src="images/case3_before.png" alt="バナー改善 Before" loading="lazy" style="width:100%; object-fit:contain;">
-        </div>
-        <div style="overflow:hidden; display:flex; align-items:center; justify-content:center; padding:16px;">
-          <img src="images/case3_after.png" alt="バナー改善 After" loading="lazy" style="width:100%; object-fit:contain;">
-        </div>
-      </div>
-      <div class="slide-info">
-        <div class="slide-cat">クリエイティブ改善</div>
-        <div class="slide-title">バナークリエイティブ改善</div>
-        <div class="slide-desc">スーパーDEAL Daysのスマホ向けカンバンバナーを改善。情報の優先順位を整理しポイントバック訴求を再設計した結果、<strong style="color:var(--ink);">CTR+0.91pt</strong>を達成。</div>
-        <div class="slide-counter">6 / 6</div>
-      </div>
-    </div>
-    </div>
-    <button class="slider-btn slider-prev" onclick="sliderNav(-1)">‹</button>
-    <button class="slider-btn slider-next" onclick="sliderNav(1)">›</button>
   </div>
-  <div class="slider-dots"><button class="slider-dot active" onclick="goTo(0)"></button><button class="slider-dot" onclick="goTo(1)"></button><button class="slider-dot" onclick="goTo(2)"></button><button class="slider-dot" onclick="goTo(3)"></button><button class="slider-dot" onclick="goTo(4)"></button><button class="slider-dot" onclick="goTo(5)"></button></div></div>
+
+  <div class="about-body">
+    <div>
+      <div class="about-section-label">Outside of Work | 私の日常</div>
+      <p style="font-size:15px;font-weight:300;color:var(--gray-dark);line-height:1.9;margin-bottom:6px;">幼い頃からピアノを習い、バンド・吹奏楽・作曲とさまざまな形で音楽に関わり、音楽は私の人生に欠かせない存在です。今はLIVEに行ったりレコードを集めたりして楽しんでいます。また、自然や旅も好きで、新しい景色と体験から刺激を得ています。</p>
+      <p style="font-size:13px;font-weight:200;color:var(--gray-mid);line-height:1.9;margin-bottom:48px;">Music has been at the heart of my life — from piano lessons as a child, to performing in bands and wind orchestras, to writing my own compositions. Music is something I simply cannot live without. These days, I enjoy going to live shows and collecting records. I'm also drawn to nature and travel — new landscapes and experiences are a constant source of inspiration for me.</p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div style="width:180px;height:180px;flex-shrink:0;overflow:hidden;border-radius:4px;"><img src="images/life_01.jpg" alt="Record shop" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(10%);transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div style="width:180px;height:180px;flex-shrink:0;overflow:hidden;border-radius:4px;"><img src="images/life_02.jpg" alt="Live music" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(10%);transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div style="width:180px;height:180px;flex-shrink:0;overflow:hidden;border-radius:4px;"><img src="images/life_03.jpg" alt="Travel" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(10%);transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div style="width:180px;height:180px;flex-shrink:0;overflow:hidden;border-radius:4px;"><img src="images/life_04.jpg" alt="Australia" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(10%);transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-copy">© 2026 Web Director</span>
+  </footer>
 </div>
 
-<hr class="divider">
+<!-- RESUME PAGE -->
+<div class="page" id="page-resume">
+  <div class="resume-hero">
+    <div class="about-label">Resume</div>
+    <h2 class="about-title-en">Experience<br>& Background</h2>
+    <div class="about-title-ja">経歴・バックグラウンド</div>
+  </div>
 
-<div id="contact" class="fade">
-  <p class="sec-eyebrow">05 — Contact</p>
-  <h2 class="contact-heading">ご覧いただき、<br>ありがとうございました。</h2>
-  <p style="font-size:13px; color:var(--ink-dim); font-weight:300;">ご質問、ご連絡はメールにて宜しくお願い致します。</p>
-  <span class="contact-email" id="contact-mail"></span>
-  <script>
-    (function(){
-      var u='',d='';
-      var el=document.getElementById('contact-mail');
-      el.innerHTML='お問い合わせはこちらから（非公開）';
-    })();
-  </script>
+  <div class="resume-body">
+    <div class="resume-section">
+      <div class="resume-section-label">Work Experience <span style="font-family:'Noto Sans JP';font-weight:200;font-size:13px;color:var(--gray-light);margin-left:16px;">職務経歴</span></div>
+
+      <div class="resume-item">
+        <div class="resume-period">Jan 2023 — Mar 2026</div>
+        <div class="resume-detail">
+          <div class="resume-co-ja">楽天グループ株式会社（楽天市場）</div>
+          <div class="resume-co-en">Rakuten Group, Inc.</div>
+          <div class="resume-role-ja">Webディレクター</div>
+          <div class="resume-role-en">Web Director</div>
+          <p class="resume-desc-ja">コスメ・日用品・ギフトサービスなどの楽天市場Webディレクションを担当。企画立案からユーザー分析・制作進行・効果測定まで全工程を一貫して担当。大規模企画では、GMS前年比+37%・13億円超の流通を達成。</p>
+          <p class="resume-desc-en">Led end-to-end web direction for cosmetics, daily goods, and gift services on Rakuten Ichiba. Owned the full PDCA cycle from planning and user research through KPI measurement. Achieved 37% YoY GMV growth and ¥1.3B+ in page-attributed sales.</p>
+        </div>
+      </div>
+
+      <div class="resume-item">
+        <div class="resume-period">Jul 2020 — Dec 2022</div>
+        <div class="resume-detail">
+          <div class="resume-co-ja">楽天モバイル株式会社（出向）</div>
+          <div class="resume-co-en">Rakuten Mobile, Inc. (Secondment)</div>
+          <div class="resume-role-ja">法人営業</div>
+          <div class="resume-role-en">Sales</div>
+          <p class="resume-desc-ja">基地局設置に関する法人営業を担当。新規・既存顧客のニーズヒアリングから提案まで顧客折衝を一貫して担当。チームリーダーとしてメンバーのマネジメントも経験。</p>
+          <p class="resume-desc-en">Managed B2B sales for base station installation projects. Handled both new and existing clients, leading the full sales cycle from needs assessment to proposal. Also served as team leader, managing team members.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="resume-section-label">Education <span style="font-family:'Noto Sans JP';font-weight:200;font-size:13px;color:var(--gray-light);margin-left:16px;">学歴</span></div>
+
+      <div class="resume-item">
+        <div class="resume-period">Jan 2026 — Present</div>
+        <div class="resume-detail">
+          <div class="resume-co-ja">デジタルハリウッド大学</div>
+          <div class="resume-co-en">Digital Hollywood University</div>
+          <div class="resume-role-ja">グラフィック・UI専攻コース</div>
+          <div class="resume-role-en">Graphic & UI Design</div>
+          <p class="resume-desc-ja">就業と並行してUI/UXデザインを体系的に学習中。2026年7月卒業予定。</p>
+          <p class="resume-desc-en">Evening program in UI/UX and graphic design, studying alongside full-time work.</p>
+        </div>
+      </div>
+
+      <div class="resume-item">
+        <div class="resume-period">Apr 2016 — Mar 2020</div>
+        <div class="resume-detail">
+          <div class="resume-co-ja">同志社大学</div>
+          <div class="resume-co-en">Doshisha University</div>
+          <div class="resume-role-ja">商学部商学科 卒業</div>
+          <div class="resume-role-en">B.A. Commerce</div>
+          <p class="resume-desc-ja">データ分析・マーケティングを専攻。</p>
+          <p class="resume-desc-en">Majored in data analysis and marketing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="resume-section-label">Skills & Tools <span style="font-family:'Noto Sans JP';font-weight:200;font-size:13px;color:var(--gray-light);margin-left:16px;">スキル</span></div>
+      <div style="display:flex;flex-wrap:wrap;">
+        <div class="about-skill-item"><span class="about-skill-en">Web Direction</span><span class="about-skill-ja">Webディレクション</span></div>
+        <div class="about-skill-item"><span class="about-skill-en">User Research & Interview</span><span class="about-skill-ja">ユーザーインタビュー・分析</span></div>
+        <div class="about-skill-item"><span class="about-skill-en">Competitive Analysis</span><span class="about-skill-ja">競合他社分析</span></div>
+        <div class="about-skill-item"><span class="about-skill-en">A/B Testing</span><span class="about-skill-ja">A/Bテスト設計</span></div>
+        <div class="about-skill-item"><span class="about-skill-en">KPI Measurement</span><span class="about-skill-ja">効果測定・KPI分析</span></div>
+        <div class="about-skill-item"><span class="about-skill-en">Figma / Photoshop / Illustrator</span><span class="about-skill-ja">デザインツール</span></div>
+        <div class="about-skill-item"><span class="about-skill-en">HTML / CSS</span><span class="about-skill-ja">コーディング</span></div>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="resume-section-label">Certification & Language <span style="font-family:'Noto Sans JP';font-weight:200;font-size:13px;color:var(--gray-light);margin-left:16px;">資格・語学</span></div>
+      <div class="about-skill-item"><span class="about-skill-en">TOEIC 800 / 990</span><span class="about-skill-ja">英語</span></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-copy">© 2026 Web Director</span>
+  </footer>
 </div>
 
-<footer>
-  <span class="footer-copy">© 2025 Web Director Portfolio</span>
-  <span class="footer-copy" style="font-style:italic; font-family:'Cormorant Garamond',serif; font-size:13px;">Web Director &amp; Designer</span>
-</footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>const fades = document.querySelectorAll('.fade');
-const obs = new IntersectionObserver(entries => {
- entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-fades.forEach(el => obs.observe(el));
-document.querySelectorAll('.acc-btn').forEach(btn => {
- btn.addEventListener('click', function(e) {
- e.stopPropagation();
- const detail = this.nextElementSibling;
- const isOpen = detail.classList.contains('open');
- detail.classList.toggle('open', !isOpen);
- this.classList.toggle('open', !isOpen);
- this.querySelector('.arr').textContent = isOpen ? '↓' : '↑';
- });
-});
-var sliderIdx = 0;
-var slideEls = document.querySelectorAll('.slide');
-var dotEls = document.querySelectorAll('.slider-dot');
-function updateSlider() {
- document.getElementById('sliderTrack').style.transform = 'translateX(-' + (sliderIdx * 100) + '%)';
- dotEls.forEach(function(d, i) { d.classList.toggle('active', i === sliderIdx); });
-}
-function sliderNav(dir) {
- sliderIdx = (sliderIdx + dir + slideEls.length) % slideEls.length;
- updateSlider();
-}
-function goTo(idx) {
- sliderIdx = idx;
- updateSlider();
-}
-var touchStartX = 0;
-var sliderEl = document.getElementById('bannerSlider');
-if (sliderEl) {
- sliderEl.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
- sliderEl.addEventListener('touchend', function(e) {
- var diff = touchStartX - e.changedTouches[0].clientX;
- if (Math.abs(diff) > 40) sliderNav(diff > 0 ? 1 : -1);
- });
-}
-var modalImgs = [];
-var modalIdx = 0;
-function buildImgList() {
- modalImgs = [];
- document.querySelectorAll('.slide-thumb img, .ba-img img').forEach(function(img) {
- modalImgs.push({ src: img.src, alt: img.alt });
- });
-}
-function openModal(thumb) {
- buildImgList();
- var img = thumb.querySelector('img');
- modalIdx = modalImgs.findIndex(function(m) { return m.src === img.src; });
- showModal(modalIdx);
-}
-function showModal(idx) {
- var m = modalImgs[idx];
- document.getElementById('modalImg').src = m.src;
- document.getElementById('modalImg').alt = m.alt;
- document.getElementById('modalCaption').textContent = m.alt;
- document.getElementById('modal').classList.add('open');
- document.body.style.overflow = 'hidden';
-}
-function modalClose() {
- document.getElementById('modal').classList.remove('open');
- document.body.style.overflow = '';
-}
-function closeModal(e) {
- if (e.target === document.getElementById('modal')) modalClose();
-}
-function modalNav(dir) {
- modalIdx = (modalIdx + dir + modalImgs.length) % modalImgs.length;
- showModal(modalIdx);
-}
-document.addEventListener('keydown', function(e) {
- var modalOpen = document.getElementById('modal').classList.contains('open');
- if (e.key === "Escape" && modalOpen) { modalClose(); return; }
- if (e.key === "ArrowRight") { modalOpen ? modalNav(1) : sliderNav(1); }
- if (e.key === "ArrowLeft") { modalOpen ? modalNav(-1) : sliderNav(-1); }
-});</script>
+<script>
+const cases = {
+  1: {
+    num: 'Case 02',
+    titleEn: 'Youth Cosmetics Campaign',
+    titleJa: '若年層向けコスメキャンペーン 企画・ディレクション',
+    tags: ['User Research','Competitive Analysis','SNS Strategy','Design Direction'],
+    meta: [
+      {keyEn:'Role',keyJa:'役割',valEn:'Web Director (End-to-End)',valJa:'Webディレクター（企画〜リリース）'},
+      {keyEn:'Target',keyJa:'ターゲット',valEn:'Ages 18–29, Cosmetics Users',valJa:'18〜29歳 コスメ購入ユーザー'},
+      {keyEn:'Scope',keyJa:'担当範囲',valEn:'Research → Strategy → Design → Launch',valJa:'課題設定〜制作進行〜リリース'},
+    ],
+    steps: [
+      {labelEn:'01 — Problem Statement',labelJa:'課題設定',
+       en:"Rakuten Ichiba was struggling to acquire younger users (ages 18–29). The core challenge: how to plan and execute a campaign that uses the cosmetics category as an entry point to improve retention among this demographic.",
+       ja:'<ul><li>楽天市場全体で若年層の獲得ができていないことが課題</li><li>コスメジャンルを起点に、若年層の定着率向上を目指す企画立案が必要とされていた</li></ul>'},
+      {labelEn:'02 — User Research',labelJa:'ユーザー調査・課題発見',
+       en:"Conducted a two-phase research study. First, collected survey responses from 50 employees aged 22–28 who had used Qoo10. From these, selected 8 heavy Qoo10 users for in-depth interviews, observing their actual shopping flow via screen share.<br><br>Key findings:<br><ul><li data-num='true'>① 88% (7/8) referred to Qoo10 rankings before making a purchase decision — especially during Mega Sale events</li><li data-num='true'>② Rakuten's rankings reflect purchases by its core demographic (30–50s), making them feel irrelevant to younger users</li><li data-num='true'>③ Instant discounts resonate more than point rewards — unlike older users who value accumulating points</li><li data-num='true'>④ 75% (6/8) felt some level of anxiety about Qoo10 — payment security, suspicious ads, or server outages</li><li data-num='true'>⑤ Even existing Rakuten users switch to Qoo10 for cosmetics, separating their shopping by category</li></ul>",
+       ja:'2段階の調査を実施。まずQoo10を使ったことがある22〜28歳の社員を対象にアンケートを実施し50名から回収。その中からQoo10ヘビーユーザー8名でインタビューを実施。アプリを画面共有してもらいながら実際の買い物の手順を確認した。<br><br>主な発見：<br><ul><li data-num="true">① 88%（8名中7名）がQoo10のランキングを参照してから購入を決定。特にメガ割中のランキングを活用</li><li data-num="true">② 楽天のランキングは30〜50代が買っているコスメが表示され、自分に合っていると思えないことが発覚</li><li data-num="true">③ ポイント還元より即時割引を好む（世代別の価値観の違い）</li><li data-num="true">④ 75%（8名中6名）がQoo10の決済面・不審広告・サーバーダウンなどに不安を感じていた</li><li data-num="true">⑤ 楽天ユーザーでも商材でサービスを使い分けている</li></ul>'},
+      {labelEn:'03 — Competitive Analysis',labelJa:'競合分析・強みの発見',
+       en:"Comparative analysis with Qoo10 revealed a critical advantage: 100% (8/8) of interviewees said they trusted Rakuten more than Qoo10 in terms of payment, shipping, and product quality. This confirmed that Rakuten already had the foundation of trust — the gap was in trend appeal and discount structure, both of which could be addressed through strategy.",
+       ja:'Qoo10との比較分析で重要な強みが判明。決済・配送・品質などのサービス信頼性について、8名中8名（100%）が楽天の方が信頼できると回答。楽天はすでに信頼という強固な基盤を持っており、あとはトレンド訴求と割引設計で挽回できると判断。'},
+      {labelEn:'04 — Strategy & Execution',labelJa:'施策設計・実行',
+       en:"Based on research findings, designed three data-backed initiatives:<br><ul><li data-num='true'>① Introduced an age-filtered ranking showing only purchases by users aged 18–29 — directly addressing the insight that existing rankings felt irrelevant to younger users</li><li data-num='true'>② Shifted the value proposition from 'earn points' to 'up to 4,000 yen OFF' — directly competing with Qoo10's instant discount model</li><li data-num='true'>③ For campaign naming, proposed multiple candidates and surveyed 16 Gen Z members within the department on which name would make them want to visit the page. 'Beauty Buzz' received the most votes (9/16) and was selected. For influencer selection, conducted internal surveys on awareness, likability, and follow rate among Gen Z to inform casting decisions</li></ul>",
+       ja:'<ul><li data-num="true">① 18〜29歳のみに絞ったランキングを新設。既存ランキングが自分に合わないという課題に直接対応</li><li data-num="true">② 訴求を「4,000円OFF」「最大30%OFF」へ転換（Qoo10をベンチマーク）</li><li data-num="true">③ 企画名はいくつかの候補を提案し、部署内のZ世代16名にアンケートを実施。「ページを見たいと思うか」で最多得票（9名）を獲得した「Beauty Buzz」に決定。インフルエンサー起用も同様に、Z世代への認知・好感・フォロー状況をヒアリングし選定の判断材料とした</li></ul>'},
+      {labelEn:'05 — Design Direction',labelJa:'デザインディレクション',
+       en:"Directed a full visual overhaul to appeal to younger audiences. Introduced balloon typography and trend-forward color palettes — intentionally moving away from Rakuten's traditional red-and-gold aesthetic while maintaining brand credibility.",
+       ja:'<ul><li>若年層向けにトレンドのバルーン文字や色味を起用</li><li>「楽天らしくなさ」をいい意味で追求したトンマナへ刷新</li><li>ビジュアルとコピー全体の方向性を上流から定義した</li></ul>'},
+    ],
+    results: null,
+    note: {en:'Transferred before KPI measurement. Target metrics were set as: new user acquisition (ages 18–29), CVR, and repeat purchase rate within 3 months.',
+           ja:'異動により効果測定は未実施。設定指標：18〜29歳の新規ユーザー数・CVR・3ヶ月以内のリピート率'},
+    image: {src:'images/capture_cosme_campaign.jpg', alt:'Beauty Buzz Campaign', link:'https://event.rakuten.co.jp/beauty/z/campaign/', linkText:'View Site ↗'},
+    hasBefore: false,
+  },
+  2: {
+    num: 'Case 01',
+    titleEn: 'Summer Heat Fair — Full Redesign',
+    titleJa: '暑さ対策フェア フルリニューアル',
+    tags: ['Full Redesign','Team Lead (6 members)','KPI Planning','Ad Design'],
+    meta: [
+      {keyEn:'Role',keyJa:'役割',valEn:'Web Director — Team Lead (6 members)',valJa:'Webディレクター（6名チームをリード）'},
+      {keyEn:'Duration',keyJa:'制作期間',valEn:'6 months',valJa:'約6ヶ月'},
+      {keyEn:'Scope',keyJa:'担当範囲',valEn:'KPI Setting → Analysis → Concept → Production → Launch',valJa:'KPI設定〜分析〜コンセプト〜制作〜リリース'},
+    ],
+    steps: [
+      {labelEn:'01 — KPI Setting',labelJa:'KPI設定',
+       en:'<ul><li>Set GMV target: +10% YoY</li><li>Set ad revenue target: over ¥20M</li><li>Used these KPIs to align the full team and guide every design decision</li></ul>',
+       ja:'<ul><li>GMS前年比+10%・広告売上2,000万円以上をKPIに設定</li><li>全チームの判断軸として活用</li></ul>'},
+      {labelEn:'02 — Data Analysis & Problem Identification',labelJa:'分析・課題特定',
+       en:'<ul><li>Analyzed 2023 industry data: music festival attendance +41.5% YoY (Pia Research Institute), fireworks event market +450% YoY (JACE). Based on this recovery trend, predicted outdoor demand would accelerate further in summer 2024 — and decided to redesign the concept ahead of that shift</li><li>Analyzed previous year heatmap: outdoor-demand items showed +11% higher click rate vs. indoor categories, despite accounting for only ~30% of page content — a clear gap between user intent and content structure</li><li>Concluded the indoor-heavy structure was misaligned with actual user demand</li></ul>',
+       ja:'<ul><li>2023年の業界データを分析。音楽フェス動員数が前年比+41.5%（ぴあ総研）、花火大会市場が前年比+450%（日本イベント産業振興協会）と急回復。この回復トレンドが2024年夏にさらに加速すると予測し、コンセプト刷新の判断根拠とした</li><li>前年のヒートマップを分析。外出アイテムのクリック率は屋内カテゴリ比+11%高かったにもかかわらず、2023年のページ内掲載比率は約30%にとどまっており、ニーズとコンテンツ構成の乖離が浮き彫りに</li><li>外出需要に対してコンテンツが追いついていないことを課題として特定</li></ul>'},
+      {labelEn:'03 — Concept & Ad Design',labelJa:'コンセプト・広告設計',
+       en:'<ul><li>Refreshed the concept to "Comfort both indoors and outdoors" — increased outdoor item placement by ~20% YoY and added 6 new outdoor genres to the page lineup</li><li>Designed ad placements satisfying both store needs (high-unit indoor goods) and user needs (outdoor items), achieving over ¥20M in ad revenue</li><li>Proposed a cross-category purchase campaign — secured budget independently</li></ul>',
+       ja:'<ul><li>「おうちもおそとも快適に」へコンセプトを刷新し、外出アイテムの掲載数を前年比約20%増加・掲載ジャンルも外出カテゴリで6ジャンル追加</li><li>例年通り単価の高いおうちグッズを広告掲載したい店舗と、外出アイテムをニーズと感じるユーザー双方のニーズを満たす広告枠設計を実施し広告売上2千万円以上を達成</li><li>掲載ジャンルが増えた分、ジャンルごとに買い周り企画も自ら提案し予算獲得</li></ul>'},
+      {labelEn:'04 — Production & Team Lead',labelJa:'制作・チームリード',
+       en:'<ul><li>Managed a cross-functional team of 6 (ADs, designers, coders including contractors)</li><li>Delivered ~120 banners and 30+ pages within a 3-month production window</li><li>Handled scheduling, vendor management, and stakeholder coordination</li></ul>',
+       ja:'<ul><li>AD2名・デザイナー2名・コーダー2名（計6名）を統括</li><li>約3ヶ月でバナー約120枚・ページ30枚以上を制作</li><li>進行管理・外注調整も担当</li></ul>'},
+      {labelEn:'05 — Design & Content',labelJa:'デザイン・コンテンツ',
+       en:'<ul><li>Redesigned visual identity using warm/cool color contrasts</li><li>Introduced an original polar bear character to energize the page tone</li><li>Elevated placement of outdoor-demand items and expanded product volume</li><li>Launched a cross-category campaign (7x points for purchasing 3 categories), securing budget from marketing</li></ul>',
+       ja:'<ul><li>暑さと涼しさを色で表現したビジュアル設計へ刷新</li><li>しろくまキャラクターを新たに制作</li><li>外出需要アイテムの掲載位置を上位に変更・ボリューム拡充</li><li>3ジャンル購入でポイント7倍のキャンペーンを予算調達し実施</li></ul>'},
+    ],
+    results: [
+      {num:'↑37%',en:'GMV YoY Growth',ja:'流通総額 前年比改善'},
+      {num:'¥1.3B+',en:'Page-Attributed Sales',ja:'ページ経由GMS達成'},
+      {num:'¥20M+',en:'Ad Revenue',ja:'広告売上達成'},
+    ],
+    hasBefore: true,
+    beforeSrc:'images/img_01.png', afterSrc:'images/img_02.jpg',
+    beforeLink:'https://web.archive.org/web/20230602144954/https://event.rakuten.co.jp/genre/summer/',
+    afterLink:'https://event.rakuten.co.jp/genre/summer/',
+  },
+  3: {
+    num: 'Case 03',
+    titleEn: 'Rakken — UI/UX Redesign',
+    titleJa: '楽券 トップページ改善',
+    tags: ['UI/UX','Data Analysis','Wireframing','Competitive Research'],
+    meta: [
+      {keyEn:'Role',keyJa:'役割',valEn:'Web Director',valJa:'Webディレクター'},
+      {keyEn:'Duration',keyJa:'制作期間',valEn:'4 months',valJa:'約4ヶ月'},
+      {keyEn:'Scope',keyJa:'担当範囲',valEn:'Analysis → Concept → Wireframe → Direction',valJa:'競合分析〜コンセプト〜ワイヤーフレーム〜制作指示'},
+    ],
+    steps: [
+      {labelEn:'01 — Problem Statement',labelJa:'課題設定',
+       en:"Rakken (Rakuten's gift ticket service) had low brand awareness — 86% of traffic came from existing users, and the bounce rate sat at ~40%, indicating that new visitors were not finding the page compelling.<br><br><strong>Long-term goal:</strong> Establish Rakken as the first choice when people think of sending gifts on Rakuten.<br><strong>Mid-term KPIs:</strong> Reduce bounce rate by 10% / Increase new user visits by +10%<br><strong>Short-term approach:</strong> Identify quick wins through data, implement improvements, and iterate through PDCA cycles to steadily close the gap.",
+       ja:'楽券の認知度は低く、流入の86%が既存ユーザー。直帰率は約40%と高く、新規訪問者がページに価値を見出せていないことが課題だった。<br><br><strong>長期ゴール：</strong>「楽天でギフトを送るなら楽券」と第一想起されるブランドへ育てること。<br><strong>中期KPI：</strong>離脱率を10%改善 / 新規流入Visitsを+10%<br><strong>短期アプローチ：</strong>データで課題を特定し改善を実施。PDCAを回しながら徐々に目標値に近づける。'},
+      {labelEn:'02 — Data & Competitive Analysis',labelJa:'数値分析・競合分析',
+       en:'Analyzed heatmap data and found that many content blocks had click rates below 10%. Benchmarked against LINE Gift and found that scroll depth was approximately 2x longer — a significant UX gap. Further gaps uncovered:<br><ul><li data-num=\'true\'>① Lack of seasonal and occasion-based gift discovery</li><li data-num=\'true\'>② Insufficient visual cues for &ldquo;giftability&rdquo;</li><li data-num=\'true\'>③ Lack of clear navigation structure</li><li data-num=\'true\'>④ Inconsistent and oversized icons/buttons causing excess scroll</li><li data-num=\'true\'>⑤ Lack of consistent brand tone</li></ul>These findings confirmed the need for a full page overhaul targeting new users.',
+       ja:'ヒートマップを分析し、クリック率10%以下のコンテンツが多数発生していることを特定。LINEギフトとの比較ではスクロール回数が約2倍と、UIUX面での劣位も判明。課題が浮き彫りに。<br><ul><li data-num="true">① シーズンやイベントの切り口でのギフト提案の欠如</li><li data-num="true">② 看板画像のギフト感の欠如</li><li data-num="true">③ ナビゲーションの欠如</li><li data-num="true">④ アイコン・ボタンの不統一とサイズが大きくスクロール回数が増える問題</li><li data-num="true">⑤ トンマナ欠如</li></ul>これらの課題から、新規ユーザー向けのページ刷新が必要と判断。'},
+      {labelEn:'03 — Wireframe & Proposal',labelJa:'ワイヤーフレーム・提案',
+       en:'Created wireframes in Figma with a target of reducing scroll depth from 3 to 1. Right-sized buttons and banner widths to minimize drop-off. Proposed banner placements in high-demand seasonal campaigns (Christmas, Valentine) to create a new inflow channel for new users.',
+       ja:'<ul><li>Figmaでワイヤーフレームを作成。スクロール回数を3回→1回に削減することを設計目標に設定</li><li>ボタンサイズ・バナー幅を最適化し離脱を抑制</li><li>クリスマス・バレンタインなどギフト需要が高まるシーズナル企画へのバナー掲載を提案し、新規流入経路を設計</li></ul>'},
+      {labelEn:'04 — Production & Lead',labelJa:'制作・リード',
+       en:'Coordinated with the business unit, directed one designer, and managed external vendors. Completed a full redesign of 2 pages within a 2-month production sprint.',
+       ja:'<ul><li>事業部との折衝・デザイナー1名・外注調整を統括</li><li>約2ヶ月でページ2枚のフルリニューアルを完遂</li></ul>'},
+      {labelEn:'05 — KPI Results',labelJa:'効果測定',
+       en:'The redesign resulted in a 4% reduction in bounce rate and a 7% increase in page visits. Banner placements proposed in seasonal gift campaigns (Christmas, Valentine) drove a +13% increase in new user inflow.',
+       ja:'<ul><li>離脱率4%改善・ページVisits7%向上</li><li>クリスマス・バレンタイン特集へのバナー露出提案により、新規ユーザーの流入が+13%増加</li></ul>'},
+    ],
+    results: [
+      {num:'↓4%',en:'Bounce Rate Improvement',ja:'離脱率改善'},
+      {num:'↑7%',en:'Page Visits (PV)',ja:'ページVisits改善'},
+      {num:'↑13%',en:'New User Acquisition',ja:'新規ユーザー数増加'},
+    ],
+    hasBefore: true,
+    beforeSrc:'images/case2_before.jpg', afterSrc:'images/case2_after.jpg',
+    beforeLink:'https://web.archive.org/web/20250915150709/https://event.rakuten.co.jp/rakken/',
+    afterLink:'https://event.rakuten.co.jp/rakken/',
+  },
+};
 
+function showCase(n) {
+  const c = cases[n];
+  let html = `
+    <div class="case-hero">
+      <div class="case-num">${c.num}</div>
+      <h2 class="case-title-en">${c.titleJa}</h2>
+      <div class="case-title-ja">${c.titleEn}</div>
+      <div class="case-meta-row">
+        ${c.meta.map(m=>`<div class="case-meta-item"><div class="case-meta-key">${m.keyJa} / <span style="letter-spacing:.08em;">${m.keyEn}</span></div><div class="case-meta-val">${m.valJa}<br><span style="font-size:12px;color:var(--gray-mid);font-weight:200;">${m.valEn}</span></div></div>`).join('')}
+      </div>
+      ${c.note ? `<div style="margin-top:32px;padding:20px 24px;background:#f5f5f3;border-left:3px solid #0d0d0d;">
+        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:8px;">Note on KPI</div>
+        <p style="font-size:14px;font-weight:300;color:#3a3a3a;line-height:1.8;margin-bottom:20px;">${c.note.ja}</p>
+        <p style="font-size:12px;font-weight:200;color:#888;font-family:'DM Sans',sans-serif;line-height:1.8;">${c.note.en}</p>
+      </div>` : ''}
+    </div>
+    <div class="case-body">
+      ${c.steps.map(s=>`
+        <div class="case-step">
+          <div class="case-step-label">${s.labelEn} / <span class="case-step-label-ja">${s.labelJa}</span></div>
+          <div class="case-step-content-ja">${s.ja}</div>
+          <div class="case-step-content-en">${s.en}</div>
+        </div>
+      `).join('')}
+    </div>`;
+
+  if(c.results) {
+    html += `
+    <div style="padding:0 max(32px, calc((100% - 1060px) / 2));margin-bottom:0;">
+      <div style="font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-mid);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:0;">Results <span style="font-family:'Noto Sans JP';font-weight:200;font-size:13px;letter-spacing:.06em;text-transform:none;float:right;">成果</span></div>
+      <div style="display:grid;grid-template-columns:repeat(${c.results.length},1fr);background:var(--line);margin:0 0 80px;">${c.results.map(r=>`<div class="case-result"><div class="case-result-num">${r.num}</div><div class="case-result-en">${r.en}</div><div class="case-result-ja">${r.ja}</div></div>`).join('')}</div>
+    </div>`;
+  }
+
+  if(c.hasBefore) {
+    html += `<div class="case-images">
+      <div class="case-img-label">Before / After</div>
+      <div class="ba-grid">
+        <div class="ba-item">
+          <div class="ba-bar"><span class="ba-bar-label">Before</span><a href="${c.beforeLink}" target="_blank" rel="noopener" class="ba-bar-link">Archive ↗</a></div>
+          <div class="ba-img"><img src="${c.beforeSrc}" alt="Before"></div>
+        </div>
+        <div class="ba-item">
+          <div class="ba-bar"><span class="ba-bar-label">After</span><a href="${c.afterLink}" target="_blank" rel="noopener" class="ba-bar-link">View Site ↗</a></div>
+          <div class="ba-img"><img src="${c.afterSrc}" alt="After"></div>
+        </div>
+      </div>
+    </div>`;
+  } else if(c.image) {
+    html += `<div class="case-images">
+      <div class="case-img-label">Page Visual</div>
+      <img src="${c.image.src}" alt="${c.image.alt}" style="width:100%;display:block;">
+      <div style="margin-top:16px;"><a href="${c.image.link}" target="_blank" rel="noopener" style="font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-mid);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray-mid)'">${c.image.linkText}</a></div>
+    </div>`;
+  }
+
+  document.getElementById('case-content').innerHTML = html;
+  showPage('case');
+  window.scrollTo(0,0);
+}
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  const navEl = document.getElementById('nav-'+name);
+  if(navEl) navEl.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// Fade in
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Email
+(function(){
+  var u='',d='';
+  var el=document.getElementById('contact-mail-work');
+  if(el) el.innerHTML='<a href="mailto:'+u+'@'+d+'" style="font-size:18px;font-weight:300;color:var(--gray-dark);text-decoration:none;">'+u+'@'+d+'</a>';
+})();
+</script>
 </body>
 </html>
