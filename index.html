@@ -134,8 +134,8 @@ nav{
   color:var(--black);margin-bottom:16px;margin-top:6px;
 }
 .work-card-ja{
-  font-size:13px;font-weight:200;
-  color:var(--gray-mid);
+  font-size:13px;font-weight:400;
+  color:var(--black);
   font-family:'Noto Sans JP',sans-serif;
   margin-bottom:4px;
 }
@@ -198,19 +198,49 @@ nav{
 .case-body{padding:80px max(32px, calc((100% - 1060px) / 2));}
 .case-step{margin-bottom:64px;}
 .case-step-label{
-  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--gray-mid);margin-bottom:8px;
+  font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--black);font-weight:600;margin-bottom:8px;
   padding-bottom:12px;border-bottom:1px solid var(--line);
 }
 .case-step-label-ja{
-  font-size:11px;font-weight:200;color:var(--gray-mid);
+  font-size:12px;font-weight:500;color:var(--black);
   font-family:'Noto Sans JP',sans-serif;
   letter-spacing:.06em;text-transform:none;
 }
 .case-step-content-en{
-  font-size:13px;font-weight:300;line-height:1.9;
+  font-size:15px;font-weight:300;line-height:1.9;
   color:var(--gray-dark);margin-bottom:24px;
 }
+/* JP/EN トグル */
+.lang-toggle{
+  display:flex;gap:0;
+  margin:0 max(32px,calc((100% - 1060px)/2)) 48px;
+  border:1px solid var(--black);border-radius:8px;overflow:hidden;
+  width:fit-content;box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.lang-toggle::before{
+  content:'表示言語 / Language';
+  display:flex;align-items:center;
+  padding:0 16px;font-size:11px;letter-spacing:.12em;
+  color:var(--gray-mid);font-family:'DM Sans',sans-serif;
+  border-right:1px solid var(--line);background:#fafaf8;
+  white-space:nowrap;
+}
+.lang-btn{
+  padding:10px 28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;border:none;background:#fafaf8;color:var(--gray-mid);
+  font-family:'DM Sans',sans-serif;transition:all .2s;font-weight:400;
+}
+.lang-btn:hover{background:#f0f0ee;color:var(--black);}
+.lang-btn.active{background:var(--black);color:#fff;font-weight:500;}
+.lang-ja .case-step-content-en{ display:none; }
+.lang-ja .case-step-content-ja{ display:block; }
+.lang-en .case-step-content-ja{ display:none; }
+.lang-en .case-step-content-en{ display:block; }
+.lang-ja .case-step-content-en{ display:none; }
+.lang-ja .case-step-content-ja{ display:block; }
+.lang-en .case-step-content-ja{ display:none; }
+.lang-en .case-step-content-en{ display:block; }
 .case-step-content-en ul, .case-step-content-ja ul{
   list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;
 }
@@ -227,8 +257,9 @@ nav{
   content:none;
 }
 .case-step-content-ja{
-  font-size:13px;font-weight:200;line-height:1.9;
-  color:var(--gray-mid);font-family:'Noto Sans JP',sans-serif;margin-bottom:40px;
+  font-size:15px;font-weight:300;line-height:1.9;
+  color:var(--gray-dark);font-family:'Noto Sans JP',sans-serif;margin-bottom:40px;
+  overflow-wrap:break-word;word-break:break-word;
 }
 .case-results{
   display:grid;grid-template-columns:repeat(3,1fr);
@@ -338,6 +369,14 @@ footer{
   .resume-item{grid-template-columns:1fr}
   .design-grid{grid-template-columns:1fr 1fr}
   .nav-links{gap:20px}
+  .about-hero-grid{grid-template-columns:1fr !important;gap:32px !important;}
+  .about-hero-photo{justify-content:flex-start !important;padding-top:0 !important;}
+  .about-hero-photo img{width:120px !important;height:120px !important;}
+  .about-life-photos{flex-wrap:wrap !important;}
+  .about-life-photos > div{width:calc(50% - 6px) !important;height:140px !important;}
+  .about-desc-ja, .about-desc-en, p{word-break:break-word;}
+  .lang-toggle::before{display:none;}
+  .lang-toggle{margin-left:20px;margin-right:20px;}
 }
 
 .fade-in{opacity:1;transform:none;}
@@ -347,7 +386,7 @@ footer{
 <body>
 
 <nav>
-  <a href="#" class="nav-logo" onclick="showPage('work');return false;">Web Director</a>
+  <a href="#" class="nav-logo" onclick="showPage('work');return false;">Portfolio</a>
   <div class="nav-links">
     <a href="#" onclick="showPage('work');return false;" class="active" id="nav-work">Work</a>
     <a href="#" onclick="showPage('about');return false;" id="nav-about">About</a>
@@ -359,8 +398,8 @@ footer{
 <div class="page active" id="page-work">
   <div class="hero">
     <div class="hero-label">Portfolio</div>
-    <h1 class="hero-name">Hello!<br>I'm <em style="font-style:italic;font-weight:600;">Web Director.</em></h1>
-    <span class="hero-name-ja"></span>
+    <h1 class="hero-name">Hello!<br>I'm a <em style="font-style:italic;font-weight:600;">Web Director.</em></h1>
+    <span class="hero-name-ja">Webディレクター</span>
     <p class="hero-desc-ja" style="font-size:18px;color:rgba(255,255,255,0.8);">A WEB Director at Rakuten for Rakuten Ichiba WEB.</p>
   </div>
 
@@ -414,8 +453,8 @@ footer{
         <div class="work-card-thumb">
           <img src="images/img_02.jpg" alt="Summer Campaign">
         </div>
-        <div class="work-card-ja">暑さ対策フェア フルリニューアル</div>
-        <div class="work-card-en">Summer Heat Fair</div>
+        <div class="work-card-ja">ユーザーインサイトを起点にした大規模キャンペーン設計<br><span style="font-size:0.75em;font-weight:300;opacity:0.6;">暑さ対策フェア フルリニューアル</span></div>
+        <div class="work-card-en">Campaign Design Driven by User Insight</div>
         <div class="work-card-tags">
           <span class="work-tag">Full Redesign</span>
           <span class="work-tag">Team Lead</span>
@@ -429,8 +468,8 @@ footer{
         <div class="work-card-thumb">
           <img src="images/capture_cosme_campaign.jpg" alt="Cosmetics Campaign">
         </div>
-        <div class="work-card-ja">若年層向けコスメキャンペーン 企画・ディレクション</div>
-        <div class="work-card-en">Youth Cosmetics Campaign</div>
+        <div class="work-card-ja">ターゲット再定義から生まれたコスメ企画<br><span style="font-size:0.75em;font-weight:300;opacity:0.6;">若年層向けコスメキャンペーン 企画・ディレクション</span></div>
+        <div class="work-card-en">Redefining the Target: Youth Cosmetics Campaign</div>
         <div class="work-card-tags">
           <span class="work-tag">User Research</span>
           <span class="work-tag">Campaign Planning</span>
@@ -444,8 +483,8 @@ footer{
         <div class="work-card-thumb">
           <img src="images/case2_after.jpg" alt="Rakken">
         </div>
-        <div class="work-card-ja">楽券 トップページ改善</div>
-        <div class="work-card-en">Rakken UI/UX Redesign</div>
+        <div class="work-card-ja">データ分析で離脱率-4%を実現したUI/UX改善<br><span style="font-size:0.75em;font-weight:300;opacity:0.6;">楽券 トップページ改善</span></div>
+        <div class="work-card-en">Data-Driven UI/UX Redesign: -4% Bounce Rate</div>
         <div class="work-card-tags">
           <span class="work-tag">UI/UX</span>
           <span class="work-tag">Data Analysis</span>
@@ -477,18 +516,18 @@ footer{
 <!-- ABOUT PAGE -->
 <div class="page" id="page-about">
   <div class="about-hero">
-    <div style="display:grid;grid-template-columns:1fr 220px;gap:60px;align-items:start;">
+    <div class="about-hero-grid" style="display:grid;grid-template-columns:1fr 220px;gap:60px;align-items:start;">
       <div>
         <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,48px);font-weight:400;color:var(--black);letter-spacing:-.02em;margin-bottom:6px;line-height:1.1;">About me <span style="font-family:'Noto Sans JP',sans-serif;font-size:clamp(16px,2vw,24px);font-weight:200;color:var(--gray-mid);letter-spacing:.1em;">| 自己紹介</span></h2>
         <div style="width:40px;height:1px;background:var(--black);margin-bottom:32px;"></div>
         <p style="font-size:15px;font-weight:400;line-height:1.9;color:var(--black);margin-bottom:10px;">楽天グループ株式会社にて、約3年間「楽天市場Webサイト」のディレクターとして、企画立案から効果測定まで、ユーザー体験の創出や改善に従事。</p>
         <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--gray-dark);margin-bottom:10px;">元々は営業職としてキャリアをスタートしたが、人々の体験を豊かにするUXデザインやクリエイティブに強く魅力を感じており、社内公募制度を通じてディレクターへ転身。</p>
-        <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--gray-dark);margin-bottom:40px;">現在は、多様なステークホルダーと協働し、データドリブンなアプローチで、ユーザー体験の向上と事業成長の両立を目指している。</p>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--gray-dark);margin-bottom:40px;">現在は、多様なステークホルダーと協働し、データドリブンなアプローチで、ユーザーの心を動かす体験と事業成長の両立を目指している。</p>
         <p style="font-size:13px;font-weight:200;line-height:1.9;color:var(--gray-mid);margin-bottom:6px;"><strong>A Web Director with 3+ years of experience leading end-to-end digital direction at Rakuten Ichiba</strong>, one of Japan's largest e-commerce platforms.</p>
-        <p style="font-size:13px;font-weight:200;line-height:1.9;color:var(--gray-mid);">I began my career in sales, but was drawn to the power of UX and creative direction to optimize experiences and create value beyond expectations. Through an internal career transition, I became a Web Director — and now collaborate with diverse stakeholders to balance user experience and business growth through a data-driven approach.</p>
+        <p style="font-size:13px;font-weight:200;line-height:1.9;color:var(--gray-mid);">I began my career in sales, but was drawn to the power of experience design that moves people emotionally — and through an internal career transition, became a Web Director. I now collaborate with diverse stakeholders to balance emotionally resonant user experiences and business growth through a data-driven approach.</p>
       </div>
-      <div style="display:flex;justify-content:center;padding-top:8px;">
-
+      <div class="about-hero-photo" style="display:flex;justify-content:center;padding-top:8px;">
+        <div style="width:120px;height:120px;border-radius:50%;background:#e8e8e4;display:flex;align-items:center;justify-content:center;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
       </div>
     </div>
   </div>
@@ -499,7 +538,7 @@ footer{
       <p style="font-size:15px;font-weight:300;color:var(--gray-dark);line-height:1.9;margin-bottom:6px;">幼い頃からピアノを習い、バンド・吹奏楽・作曲とさまざまな形で音楽に関わり、音楽は私の人生に欠かせない存在です。今はLIVEに行ったりレコードを集めたりして楽しんでいます。また、自然や旅も好きで、新しい景色と体験から刺激を得ています。</p>
       <p style="font-size:13px;font-weight:200;color:var(--gray-mid);line-height:1.9;margin-bottom:48px;">Music has been at the heart of my life — from piano lessons as a child, to performing in bands and wind orchestras, to writing my own compositions. Music is something I simply cannot live without. These days, I enjoy going to live shows and collecting records. I'm also drawn to nature and travel — new landscapes and experiences are a constant source of inspiration for me.</p>
 
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <div class="about-life-photos" style="display:flex;gap:12px;flex-wrap:wrap;">
         <div style="width:180px;height:180px;flex-shrink:0;overflow:hidden;border-radius:4px;"><img src="images/life_01.jpg" alt="Record shop" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(10%);transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
         <div style="width:180px;height:180px;flex-shrink:0;overflow:hidden;border-radius:4px;"><img src="images/life_02.jpg" alt="Live music" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(10%);transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
         <div style="width:180px;height:180px;flex-shrink:0;overflow:hidden;border-radius:4px;"><img src="images/life_03.jpg" alt="Travel" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(10%);transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
@@ -607,8 +646,8 @@ footer{
 const cases = {
   1: {
     num: 'Case 02',
-    titleEn: 'Youth Cosmetics Campaign',
-    titleJa: '若年層向けコスメキャンペーン 企画・ディレクション',
+    titleEn: 'Redefining the Target: Youth Cosmetics Campaign',
+    titleJa: 'ターゲット再定義から生まれたコスメ企画<br><span style="font-size:0.6em;font-weight:300;opacity:0.6;">若年層向けコスメキャンペーン 企画・ディレクション</span>',
     tags: ['User Research','Competitive Analysis','SNS Strategy','Design Direction'],
     meta: [
       {keyEn:'Role',keyJa:'役割',valEn:'Web Director (End-to-End)',valJa:'Webディレクター（企画〜リリース）'},
@@ -618,16 +657,16 @@ const cases = {
     steps: [
       {labelEn:'01 — Problem Statement',labelJa:'課題設定',
        en:"Rakuten Ichiba was struggling to acquire younger users (ages 18–29). The core challenge: how to plan and execute a campaign that uses the cosmetics category as an entry point to improve retention among this demographic.",
-       ja:'<ul><li>楽天市場全体で若年層の獲得ができていないことが課題</li><li>コスメジャンルを起点に、若年層の定着率向上を目指す企画立案が必要とされていた</li></ul>'},
+       ja:'<ul><li>楽天市場ユーザーの約15%しか18〜29歳が占めておらず、若年層の獲得ができていないことが課題</li><li>コスメジャンルを起点に、若年層の定着率向上を目指す企画立案が必要とされていた</li></ul><div style="background:#f5f5f3;border-radius:10px;padding:20px;margin-top:12px;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:14px;">楽天市場ユーザーの年代構成（出典：業界調査）</div><div style="display:flex;flex-direction:column;gap:8px;"><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span style="color:#0d0d0d;font-weight:600;">18〜29歳</span><span style="font-weight:700;color:#0d0d0d;">約15%</span></div><div style="background:#e8e8e4;border-radius:3px;height:16px;"><div style="width:15%;height:100%;background:#0d0d0d;border-radius:3px;"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span>30〜39歳</span><span>約25%</span></div><div style="background:#e8e8e4;border-radius:3px;height:16px;"><div style="width:25%;height:100%;background:#b0b0ac;border-radius:3px;"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span>40〜49歳</span><span>約28%</span></div><div style="background:#e8e8e4;border-radius:3px;height:16px;"><div style="width:28%;height:100%;background:#b0b0ac;border-radius:3px;"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;"><span>50歳以上</span><span>約32%</span></div><div style="background:#e8e8e4;border-radius:3px;height:16px;"><div style="width:32%;height:100%;background:#b0b0ac;border-radius:3px;"></div></div></div></div><div style="font-size:11px;color:#888;margin-top:10px;">→ 年代が上がるほど利用率が高い傾向。若年層へのアプローチが急務だった</div></div>'},
       {labelEn:'02 — User Research',labelJa:'ユーザー調査・課題発見',
-       en:"Conducted a two-phase research study. First, collected survey responses from 50 employees aged 22–28 who had used Qoo10. From these, selected 8 heavy Qoo10 users for in-depth interviews, observing their actual shopping flow via screen share.<br><br>Key findings:<br><ul><li data-num='true'>① 88% (7/8) referred to Qoo10 rankings before making a purchase decision — especially during Mega Sale events</li><li data-num='true'>② Rakuten's rankings reflect purchases by its core demographic (30–50s), making them feel irrelevant to younger users</li><li data-num='true'>③ Instant discounts resonate more than point rewards — unlike older users who value accumulating points</li><li data-num='true'>④ 75% (6/8) felt some level of anxiety about Qoo10 — payment security, suspicious ads, or server outages</li><li data-num='true'>⑤ Even existing Rakuten users switch to Qoo10 for cosmetics, separating their shopping by category</li></ul>",
-       ja:'2段階の調査を実施。まずQoo10を使ったことがある22〜28歳の社員を対象にアンケートを実施し50名から回収。その中からQoo10ヘビーユーザー8名でインタビューを実施。アプリを画面共有してもらいながら実際の買い物の手順を確認した。<br><br>主な発見：<br><ul><li data-num="true">① 88%（8名中7名）がQoo10のランキングを参照してから購入を決定。特にメガ割中のランキングを活用</li><li data-num="true">② 楽天のランキングは30〜50代が買っているコスメが表示され、自分に合っていると思えないことが発覚</li><li data-num="true">③ ポイント還元より即時割引を好む（世代別の価値観の違い）</li><li data-num="true">④ 75%（8名中6名）がQoo10の決済面・不審広告・サーバーダウンなどに不安を感じていた</li><li data-num="true">⑤ 楽天ユーザーでも商材でサービスを使い分けている</li></ul>'},
+       en:"Conducted a two-phase research study. First, collected survey responses from 50 employees aged 22–28 who had used Qoo10. From these, selected 8 heavy Qoo10 users for in-depth interviews, observing their actual shopping flow via screen share.<br><br><div style='display:flex;gap:24px;margin:20px 0;flex-wrap:wrap;'><div style='flex:1;min-width:140px;background:#f5f5f3;border-radius:8px;padding:20px;text-align:center;'><div style='font-size:36px;font-weight:700;letter-spacing:-.02em;'>88%</div><div style='font-size:12px;color:#888;margin-top:4px;'>checked Qoo10 rankings before buying</div></div><div style='flex:1;min-width:140px;background:#f5f5f3;border-radius:8px;padding:20px;text-align:center;'><div style='font-size:36px;font-weight:700;letter-spacing:-.02em;'>75%</div><div style='font-size:12px;color:#888;margin-top:4px;'>felt anxiety about Qoo10 (security / ads)</div></div><div style='flex:1;min-width:140px;background:#f5f5f3;border-radius:8px;padding:20px;text-align:center;'><div style='font-size:36px;font-weight:700;letter-spacing:-.02em;'>100%</div><div style='font-size:12px;color:#888;margin-top:4px;'>trusted Rakuten more than Qoo10</div></div></div><br>Key findings:<br><ul><li data-num='true'>① 88% (7/8) referred to Qoo10 rankings before making a purchase decision — especially during Mega Sale events</li><li data-num='true'>② Rakuten's rankings reflect purchases by its core demographic (30–50s), making them feel irrelevant to younger users</li><li data-num='true'>③ Instant discounts resonate more than point rewards — unlike older users who value accumulating points</li><li data-num='true'>④ 75% (6/8) felt some level of anxiety about Qoo10 — payment security, suspicious ads, or server outages</li><li data-num='true'>⑤ Even existing Rakuten users switch to Qoo10 for cosmetics, separating their shopping by category</li></ul><br><strong>Most revealing insight — Generational gap in perceived value:</strong><br>Despite being mathematically equivalent, '¥200 off now' felt immediately rewarding to Gen Z, while '200 points' felt abstract and disconnected. In contrast, housewives valued points precisely because they transformed obligatory purchases into discretionary spending later. This finding became the core rationale for shifting our value proposition from point rewards to instant discounts.<br><br><div style='overflow-x:auto;margin-top:16px;'><table style='width:100%;border-collapse:collapse;font-size:13px;'><thead><tr style='background:#f0f0ee;color:#0d0d0d;'><th style='padding:10px 14px;text-align:left;font-weight:400;letter-spacing:.08em;'>　</th><th style='padding:10px 14px;text-align:left;font-weight:400;letter-spacing:.08em;'>Gen Z (18–29)</th><th style='padding:10px 14px;text-align:left;font-weight:400;letter-spacing:.08em;'>Housewives (30–50s)</th></tr></thead><tbody><tr style='border-bottom:1px solid #e8e8e4;'><td style='padding:10px 14px;font-weight:500;'>Value perception</td><td style='padding:10px 14px;'>Instant discount feels like a win</td><td style='padding:10px 14px;'>Points = freedom to spend later</td></tr><tr style='background:#f9f9f7;border-bottom:1px solid #e8e8e4;'><td style='padding:10px 14px;font-weight:500;'>Reason</td><td style='padding:10px 14px;'>Want to save on what they want now</td><td style='padding:10px 14px;'>Essentials → discretionary reward</td></tr><tr><td style='padding:10px 14px;font-weight:500;'>Point usage</td><td style='padding:10px 14px;'>Little interest in accumulating</td><td style='padding:10px 14px;'>Actively managed and used</td></tr></tbody></table></div>",
+       ja:'2段階の調査を実施。まずQoo10を使ったことがある22〜28歳の社員を対象にアンケートを実施し50名から回収。その中からQoo10ヘビーユーザー8名でインタビューを実施。アプリを画面共有してもらいながら実際の買い物の手順を確認した。<br><br>主な発見：<br><ul><li data-num="true">① 88%（8名中7名）がQoo10のランキングを参照してから購入を決定。特にメガ割中のランキングを活用</li><li data-num="true">② 楽天のランキングは30〜50代が買っているコスメが表示され、自分に合っていると思えないことが発覚</li><li data-num="true">③ ポイント還元より即時割引を好む（世代別の価値観の違い）</li><li data-num="true">④ 75%（8名中6名）がQoo10の決済面・不審広告・サーバーダウンなどに不安を感じていた</li><li data-num="true">⑤ 楽天ユーザーでも商材でサービスを使い分けている</li></ul><br><div style="display:flex;gap:16px;margin:20px 0;flex-wrap:wrap;"><div style="flex:1;min-width:120px;background:#f5f5f3;border-radius:8px;padding:20px;text-align:center;"><div style="font-size:36px;font-weight:700;letter-spacing:-.02em;color:#0d0d0d;">88%</div><div style="font-size:12px;color:#888;margin-top:4px;">購入前にQoo10ランキングを確認</div></div><div style="flex:1;min-width:120px;background:#f5f5f3;border-radius:8px;padding:20px;text-align:center;"><div style="font-size:36px;font-weight:700;letter-spacing:-.02em;color:#0d0d0d;">75%</div><div style="font-size:12px;color:#888;margin-top:4px;">Qoo10に不安あり（決済・広告）</div></div><div style="flex:1;min-width:120px;background:#f5f5f3;border-radius:8px;padding:20px;text-align:center;"><div style="font-size:36px;font-weight:700;letter-spacing:-.02em;color:#0d0d0d;">100%</div><div style="font-size:12px;color:#888;margin-top:4px;">楽天の方が信頼できると回答</div></div></div><br><strong>最も印象的な発見 ─ 世代間の「お得」感覚の違い：</strong><br>「200円引き」と「200ポイント付与」は実質同じ価値にもかかわらず、Z世代は前者を"今すぐ得をする"体験として好意的に受け取り、後者には関心を示さなかった。一方で主婦層は、義務的な買い物にポイントが返ってくることで"自由に使えるお金"に変換される感覚を喜んでいた。この発見が、訴求軸を「ポイント還元」から「即時割引」へ転換する根拠となった。<br><br><div style="overflow-x:auto;margin-top:16px;"><table style="width:100%;border-collapse:collapse;font-size:13px;"><thead><tr style="background:#f0f0ee;color:#0d0d0d;"><th style="padding:10px 14px;text-align:left;font-weight:400;letter-spacing:.08em;">　</th><th style="padding:10px 14px;text-align:left;font-weight:400;letter-spacing:.08em;">Z世代（18〜29歳）</th><th style="padding:10px 14px;text-align:left;font-weight:400;letter-spacing:.08em;">主婦層（30〜50代）</th></tr></thead><tbody><tr style="border-bottom:1px solid #e8e8e4;"><td style="padding:10px 14px;font-weight:500;">お得の感覚</td><td style="padding:10px 14px;">即時割引が嬉しい</td><td style="padding:10px 14px;">ポイント還元が嬉しい</td></tr><tr style="background:#f9f9f7;border-bottom:1px solid #e8e8e4;"><td style="padding:10px 14px;font-weight:500;">理由</td><td style="padding:10px 14px;">今欲しいものを安く買いたい</td><td style="padding:10px 14px;">必需品→自由なお金に変換できる</td></tr><tr><td style="padding:10px 14px;font-weight:500;">ポイント運用</td><td style="padding:10px 14px;">興味が薄く運用している人が少ない</td><td style="padding:10px 14px;">積極的に貯めて活用している</td></tr></tbody></table></div>'},
       {labelEn:'03 — Competitive Analysis',labelJa:'競合分析・強みの発見',
        en:"Comparative analysis with Qoo10 revealed a critical advantage: 100% (8/8) of interviewees said they trusted Rakuten more than Qoo10 in terms of payment, shipping, and product quality. This confirmed that Rakuten already had the foundation of trust — the gap was in trend appeal and discount structure, both of which could be addressed through strategy.",
        ja:'Qoo10との比較分析で重要な強みが判明。決済・配送・品質などのサービス信頼性について、8名中8名（100%）が楽天の方が信頼できると回答。楽天はすでに信頼という強固な基盤を持っており、あとはトレンド訴求と割引設計で挽回できると判断。'},
       {labelEn:'04 — Strategy & Execution',labelJa:'施策設計・実行',
-       en:"Based on research findings, designed three data-backed initiatives:<br><ul><li data-num='true'>① Introduced an age-filtered ranking showing only purchases by users aged 18–29 — directly addressing the insight that existing rankings felt irrelevant to younger users</li><li data-num='true'>② Shifted the value proposition from 'earn points' to 'up to 4,000 yen OFF' — directly competing with Qoo10's instant discount model</li><li data-num='true'>③ For campaign naming, proposed multiple candidates and surveyed 16 Gen Z members within the department on which name would make them want to visit the page. 'Beauty Buzz' received the most votes (9/16) and was selected. For influencer selection, conducted internal surveys on awareness, likability, and follow rate among Gen Z to inform casting decisions</li></ul>",
-       ja:'<ul><li data-num="true">① 18〜29歳のみに絞ったランキングを新設。既存ランキングが自分に合わないという課題に直接対応</li><li data-num="true">② 訴求を「4,000円OFF」「最大30%OFF」へ転換（Qoo10をベンチマーク）</li><li data-num="true">③ 企画名はいくつかの候補を提案し、部署内のZ世代16名にアンケートを実施。「ページを見たいと思うか」で最多得票（9名）を獲得した「Beauty Buzz」に決定。インフルエンサー起用も同様に、Z世代への認知・好感・フォロー状況をヒアリングし選定の判断材料とした</li></ul>'},
+       en:"Based on research findings, designed three data-backed initiatives:<br><ul><li data-num='true'>① Introduced an age-filtered ranking showing only purchases by users aged 18–29 — directly addressing the insight that existing rankings felt irrelevant to younger users<br><br><div style='text-align:center;margin-top:12px;'><img src='images/cosme_buzz_ranking.png' alt='Buzz Ranking' style='width:60%;border-radius:8px;'></div><div style='margin-top:16px;'><div style='font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;'>Page Visual — Gen Z Search Keyword Ranking</div><img src='images/cosme_search_ranking.png' alt='Gen Z Search Ranking' style='width:100%;border-radius:8px;border:1px solid #e8e8e4;'></div></li><li data-num='true'>② Shifted the value proposition from 'earn points' to 'up to 4,000 yen OFF' — directly competing with Qoo10's instant discount model</li><li data-num='true'>③ For campaign naming, proposed multiple candidates and surveyed 16 Gen Z members within the department on which name would make them want to visit the page. 'Beauty Buzz' received the most votes (9/16) and was selected. For influencer selection, conducted internal surveys on awareness, likability, and follow rate among Gen Z to inform casting decisions</li></ul>",
+       ja:`<ul><li data-num="true">① 18〜29歳のみに絞ったランキングを新設。既存ランキングが自分に合わないという課題に直接対応<br><br><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;"><div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:8px;">年齢別バズランキング</div><img src="images/cosme_buzz_ranking.png" alt="バズランキング" style="width:100%;border-radius:8px;border:1px solid #e8e8e4;"></div><div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#888;margin-bottom:8px;">Z世代 検索キーワードランキング</div><img src="images/cosme_search_ranking.png" alt="Z世代検索ランキング" style="width:100%;border-radius:8px;border:1px solid #e8e8e4;"></div></div></li><li data-num="true">② 訴求を「4,000円OFF」「最大30%OFF」へ転換（Qoo10をベンチマーク）</li><li data-num="true">③ 企画名はいくつかの候補を提案し、部署内のZ世代16名にアンケートを実施。「ページを見たいと思うか」で最多得票（9名）を獲得した「Beauty Buzz」に決定。インフルエンサー起用も同様に、Z世代への認知・好感・フォロー状況をヒアリングし選定の判断材料とした</li></ul>`},
       {labelEn:'05 — Design Direction',labelJa:'デザインディレクション',
        en:"Directed a full visual overhaul to appeal to younger audiences. Introduced balloon typography and trend-forward color palettes — intentionally moving away from Rakuten's traditional red-and-gold aesthetic while maintaining brand credibility.",
        ja:'<ul><li>若年層向けにトレンドのバルーン文字や色味を起用</li><li>「楽天らしくなさ」をいい意味で追求したトンマナへ刷新</li><li>ビジュアルとコピー全体の方向性を上流から定義した</li></ul>'},
@@ -640,8 +679,8 @@ const cases = {
   },
   2: {
     num: 'Case 01',
-    titleEn: 'Summer Heat Fair — Full Redesign',
-    titleJa: '暑さ対策フェア フルリニューアル',
+    titleEn: 'Campaign Design Driven by User Insight',
+    titleJa: 'ユーザーインサイトを起点にした大規模キャンペーン設計<br><span style="font-size:0.6em;font-weight:300;opacity:0.6;">暑さ対策フェア フルリニューアル</span>',
     tags: ['Full Redesign','Team Lead (6 members)','KPI Planning','Ad Design'],
     meta: [
       {keyEn:'Role',keyJa:'役割',valEn:'Web Director — Team Lead (6 members)',valJa:'Webディレクター（6名チームをリード）'},
@@ -654,21 +693,21 @@ const cases = {
        ja:'<ul><li>GMS前年比+10%・広告売上2,000万円以上をKPIに設定</li><li>全チームの判断軸として活用</li></ul>'},
       {labelEn:'02 — Data Analysis & Problem Identification',labelJa:'分析・課題特定',
        en:'<ul><li>Analyzed 2023 industry data: music festival attendance +41.5% YoY (Pia Research Institute), fireworks event market +450% YoY (JACE). Based on this recovery trend, predicted outdoor demand would accelerate further in summer 2024 — and decided to redesign the concept ahead of that shift</li><li>Analyzed previous year heatmap: outdoor-demand items showed +11% higher click rate vs. indoor categories, despite accounting for only ~30% of page content — a clear gap between user intent and content structure</li><li>Concluded the indoor-heavy structure was misaligned with actual user demand</li></ul>',
-       ja:'<ul><li>2023年の業界データを分析。音楽フェス動員数が前年比+41.5%（ぴあ総研）、花火大会市場が前年比+450%（日本イベント産業振興協会）と急回復。この回復トレンドが2024年夏にさらに加速すると予測し、コンセプト刷新の判断根拠とした</li><li>前年のヒートマップを分析。外出アイテムのクリック率は屋内カテゴリ比+11%高かったにもかかわらず、2023年のページ内掲載比率は約30%にとどまっており、ニーズとコンテンツ構成の乖離が浮き彫りに</li><li>外出需要に対してコンテンツが追いついていないことを課題として特定</li></ul>'},
+       ja:'<ul><li>2023年の業界データを分析。音楽フェス動員数が前年比+41.5%（ぴあ総研）、花火大会市場が前年比+450%（日本イベント産業振興協会）と急回復。この回復トレンドが2024年夏にさらに加速すると予測し、コンセプト刷新の判断根拠とした</li></ul><div style="margin:20px 0;background:#f5f5f3;border-radius:10px;padding:24px;"><div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-bottom:16px;">市場回復トレンド 2022→2023（出典：ぴあ総研 / 日本イベント産業振興協会）</div><div style="display:flex;flex-direction:column;gap:20px;"><div><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;"><span style="font-size:13px;color:#3a3a3a;font-weight:500;">音楽フェス動員数</span><span style="font-size:12px;color:#888;">241万人 → 341万人</span></div><div style="display:flex;gap:4px;align-items:center;"><div style="background:#e8e8e4;border-radius:4px;height:32px;position:relative;flex:1;"><div style="width:71%;height:100%;background:#888;border-radius:4px 0 0 4px;display:flex;align-items:center;padding-left:10px;"><span style="color:#fff;font-size:11px;">2022: 241万人</span></div></div></div><div style="display:flex;gap:4px;align-items:center;margin-top:4px;"><div style="background:#e8e8e4;border-radius:4px;height:32px;position:relative;flex:1;"><div style="width:100%;height:100%;background:#0d0d0d;border-radius:4px;display:flex;align-items:center;padding-left:10px;"><span style="color:#fff;font-size:11px;">2023: 341万人（前年比 +41.5%）</span></div></div></div></div><div><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;"><span style="font-size:13px;color:#3a3a3a;font-weight:500;">花火大会市場</span><span style="font-size:12px;color:#888;">前年比 +450%（大幅回復）</span></div><div style="display:flex;gap:4px;align-items:center;"><div style="background:#e8e8e4;border-radius:4px;height:32px;position:relative;flex:1;"><div style="width:18%;height:100%;background:#888;border-radius:4px 0 0 4px;display:flex;align-items:center;padding-left:8px;"><span style="color:#fff;font-size:11px;">2022</span></div></div></div><div style="display:flex;gap:4px;align-items:center;margin-top:4px;"><div style="background:#e8e8e4;border-radius:4px;height:32px;position:relative;flex:1;"><div style="width:100%;height:100%;background:#0d0d0d;border-radius:4px;display:flex;align-items:center;padding-left:10px;"><span style="color:#fff;font-size:11px;">2023: 前年比 +450%（コロナ規制解除で急回復）</span></div></div></div></div></div><div style="font-size:11px;color:#888;margin-top:12px;padding-top:12px;border-top:1px solid #e8e8e4;">→ 2024年夏はさらに加速と予測。コンセプト刷新の判断根拠に</div></div><ul><li>前年のヒートマップを分析。外出アイテムのクリック率は屋内カテゴリ比+11%高かったにもかかわらず、2023年のページ内掲載比率は約30%にとどまっており、ニーズとコンテンツ構成の乖離が浮き彫りに</li></ul><div style="margin:20px 0;background:#f5f5f3;border-radius:10px;padding:24px;"><div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-bottom:16px;">ニーズ vs コンテンツ構成の乖離（前年）</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;"><div style="text-align:center;"><div style="font-size:11px;color:#888;margin-bottom:8px;">クリック率</div><div style="display:flex;justify-content:center;gap:4px;align-items:flex-end;height:80px;"><div style="width:40px;background:#e8e8e4;border-radius:4px 4px 0 0;height:60%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;"><span style="font-size:10px;color:#888;">屋内</span></div><div style="width:40px;background:#0d0d0d;border-radius:4px 4px 0 0;height:100%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;"><span style="font-size:10px;color:#fff;">屋外</span></div></div><div style="font-size:11px;color:#888;margin-top:4px;">屋外が+11%高い</div></div><div style="text-align:center;"><div style="font-size:11px;color:#888;margin-bottom:8px;">掲載比率</div><div style="display:flex;justify-content:center;gap:4px;align-items:flex-end;height:80px;"><div style="width:40px;background:#0d0d0d;border-radius:4px 4px 0 0;height:100%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;"><span style="font-size:10px;color:#fff;">屋内</span></div><div style="width:40px;background:#e8e8e4;border-radius:4px 4px 0 0;height:43%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;"><span style="font-size:10px;color:#888;">屋外</span></div></div><div style="font-size:11px;color:#888;margin-top:4px;">屋外は約30%のみ</div></div></div><div style="font-size:11px;color:#888;margin-top:12px;padding-top:12px;border-top:1px solid #e8e8e4;">→ ニーズがあるのにコンテンツが追いついていない構造的な課題を発見</div></div><ul><li>外出需要に対してコンテンツが追いついていないことを課題として特定</li></ul>'},
       {labelEn:'03 — Concept & Ad Design',labelJa:'コンセプト・広告設計',
        en:'<ul><li>Refreshed the concept to "Comfort both indoors and outdoors" — increased outdoor item placement by ~20% YoY and added 6 new outdoor genres to the page lineup</li><li>Designed ad placements satisfying both store needs (high-unit indoor goods) and user needs (outdoor items), achieving over ¥20M in ad revenue</li><li>Proposed a cross-category purchase campaign — secured budget independently</li></ul>',
-       ja:'<ul><li>「おうちもおそとも快適に」へコンセプトを刷新し、外出アイテムの掲載数を前年比約20%増加・掲載ジャンルも外出カテゴリで6ジャンル追加</li><li>例年通り単価の高いおうちグッズを広告掲載したい店舗と、外出アイテムをニーズと感じるユーザー双方のニーズを満たす広告枠設計を実施し広告売上2千万円以上を達成</li><li>掲載ジャンルが増えた分、ジャンルごとに買い周り企画も自ら提案し予算獲得</li></ul>'},
+       ja:'<ul><li>「おうちもおそとも快適に」へコンセプトを刷新し、外出アイテムの掲載数を前年比約20%増加・掲載ジャンルも外出カテゴリで6ジャンル追加</li></ul><div style="margin:20px 0;background:#f5f5f3;border-radius:10px;padding:24px;"><div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-bottom:16px;">コンテンツ構成 Before / After</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;"><div style="text-align:center;"><div style="font-size:12px;font-weight:600;margin-bottom:12px;">Before（2023年）</div><div style="width:120px;height:120px;border-radius:50%;background:conic-gradient(#0d0d0d 0% 70%, #c8c8c4 70% 100%);margin:0 auto 8px;"></div><div style="display:flex;gap:12px;justify-content:center;font-size:11px;"><span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;background:#0d0d0d;border-radius:2px;display:inline-block;"></span>屋内 70%</span><span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;background:#c8c8c4;border-radius:2px;display:inline-block;"></span>屋外 30%</span></div></div><div style="text-align:center;"><div style="font-size:12px;font-weight:600;margin-bottom:12px;">After（2024年）</div><div style="width:120px;height:120px;border-radius:50%;background:conic-gradient(#0d0d0d 0% 50%, #c8c8c4 50% 100%);margin:0 auto 8px;"></div><div style="display:flex;gap:12px;justify-content:center;font-size:11px;"><span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;background:#0d0d0d;border-radius:2px;display:inline-block;"></span>屋内 50%</span><span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;background:#c8c8c4;border-radius:2px;display:inline-block;"></span>屋外 50%</span></div></div></div><div style="font-size:11px;color:#888;margin-top:12px;padding-top:12px;border-top:1px solid #e8e8e4;">→ 市場トレンドに合わせ屋外比率を2倍に。ユーザーニーズとコンテンツを一致させた</div></div><ul><li>例年通り単価の高いおうちグッズを広告掲載したい店舗と、外出アイテムをニーズと感じるユーザー双方のニーズを満たす広告枠設計を実施し広告売上2千万円以上を達成</li><li>掲載ジャンルが増えた分、ジャンルごとに買い周り企画も自ら提案し予算獲得</li></ul>'},
       {labelEn:'04 — Production & Team Lead',labelJa:'制作・チームリード',
        en:'<ul><li>Managed a cross-functional team of 6 (ADs, designers, coders including contractors)</li><li>Delivered ~120 banners and 30+ pages within a 3-month production window</li><li>Handled scheduling, vendor management, and stakeholder coordination</li></ul>',
-       ja:'<ul><li>AD2名・デザイナー2名・コーダー2名（計6名）を統括</li><li>約3ヶ月でバナー約120枚・ページ30枚以上を制作</li><li>進行管理・外注調整も担当</li></ul>'},
+       ja:'<ul><li>AD2名・デザイナー2名・コーダー2名（計6名）を統括</li><li>約3ヶ月でバナー約120枚・ページ30枚以上を制作</li><li>進行管理・外注調整も担当</li></ul><div style="margin:20px 0;background:#f5f5f3;border-radius:10px;padding:24px;"><div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-bottom:16px;">制作ボリューム（約3ヶ月・6名チーム）</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;"><div style="background:#fff;border-radius:8px;padding:16px;text-align:center;border:1px solid #e8e8e4;"><div style="font-size:28px;font-weight:700;color:#0d0d0d;">30+</div><div style="font-size:12px;color:#888;margin-top:4px;">ページ制作</div></div><div style="background:#fff;border-radius:8px;padding:16px;text-align:center;border:1px solid #e8e8e4;"><div style="font-size:28px;font-weight:700;color:#0d0d0d;">120+</div><div style="font-size:12px;color:#888;margin-top:4px;">バナー制作</div></div><div style="background:#fff;border-radius:8px;padding:16px;text-align:center;border:1px solid #e8e8e4;"><div style="font-size:28px;font-weight:700;color:#0d0d0d;">6名</div><div style="font-size:12px;color:#888;margin-top:4px;">チームをリード</div></div></div></div>'},
       {labelEn:'05 — Design & Content',labelJa:'デザイン・コンテンツ',
-       en:'<ul><li>Redesigned visual identity using warm/cool color contrasts</li><li>Introduced an original polar bear character to energize the page tone</li><li>Elevated placement of outdoor-demand items and expanded product volume</li><li>Launched a cross-category campaign (7x points for purchasing 3 categories), securing budget from marketing</li></ul>',
-       ja:'<ul><li>暑さと涼しさを色で表現したビジュアル設計へ刷新</li><li>しろくまキャラクターを新たに制作</li><li>外出需要アイテムの掲載位置を上位に変更・ボリューム拡充</li><li>3ジャンル購入でポイント7倍のキャンペーンを予算調達し実施</li></ul>'},
+       en:'<ul><li>Redesigned visual identity using warm/cool color contrasts</li><li>Introduced an original polar bear character to energize the page tone</li><li>Elevated placement of outdoor-demand items and expanded product volume</li><li>Launched a cross-category campaign (5x points for purchasing 3 categories), securing budget from marketing</li></ul>',
+       ja:'<ul><li>暑さと涼しさを色で表現したビジュアル設計へ刷新</li><li>しろくまキャラクターを新たに制作し、ページのトーンを統一</li><li>外出需要アイテムの掲載位置を上位に変更・ボリューム拡充</li><li>3ジャンル購入でポイント5倍のキャンペーンを予算調達し実施</li></ul><div style="margin-top:20px;"><div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#888;margin-bottom:12px;">Campaign Visual — 買いまわりキャンペーン 看板バナー</div><img src="images/summer_campaign_banner.png" alt="暑さ対策フェア 買いまわりキャンペーンバナー" style="width:100%;border-radius:8px;border:1px solid #e8e8e4;"></div>'},
     ],
     results: [
       {num:'↑37%',en:'GMV YoY Growth',ja:'流通総額 前年比改善'},
-      {num:'¥1.3B+',en:'Page-Attributed Sales',ja:'ページ経由GMS達成'},
-      {num:'¥20M+',en:'Ad Revenue',ja:'広告売上達成'},
+      {num:'13<span style="font-size:0.55em;font-weight:400;">億円</span>+',en:'Page-Attributed Sales',ja:'ページ経由GMS達成'},
+      {num:'2<span style="font-size:0.55em;font-weight:400;">千万円</span>+',en:'Ad Revenue',ja:'広告売上達成'},
     ],
     hasBefore: true,
     beforeSrc:'images/img_01.png', afterSrc:'images/img_02.jpg',
@@ -677,8 +716,8 @@ const cases = {
   },
   3: {
     num: 'Case 03',
-    titleEn: 'Rakken — UI/UX Redesign',
-    titleJa: '楽券 トップページ改善',
+    titleEn: 'Data-Driven UI/UX Redesign: -4% Bounce Rate',
+    titleJa: 'データ分析で離脱率-4%を実現したUI/UX改善<br><span style="font-size:0.6em;font-weight:300;opacity:0.6;">楽券 トップページ改善</span>',
     tags: ['UI/UX','Data Analysis','Wireframing','Competitive Research'],
     meta: [
       {keyEn:'Role',keyJa:'役割',valEn:'Web Director',valJa:'Webディレクター'},
@@ -688,13 +727,13 @@ const cases = {
     steps: [
       {labelEn:'01 — Problem Statement',labelJa:'課題設定',
        en:"Rakken (Rakuten's gift ticket service) had low brand awareness — 86% of traffic came from existing users, and the bounce rate sat at ~40%, indicating that new visitors were not finding the page compelling.<br><br><strong>Long-term goal:</strong> Establish Rakken as the first choice when people think of sending gifts on Rakuten.<br><strong>Mid-term KPIs:</strong> Reduce bounce rate by 10% / Increase new user visits by +10%<br><strong>Short-term approach:</strong> Identify quick wins through data, implement improvements, and iterate through PDCA cycles to steadily close the gap.",
-       ja:'楽券の認知度は低く、流入の86%が既存ユーザー。直帰率は約40%と高く、新規訪問者がページに価値を見出せていないことが課題だった。<br><br><strong>長期ゴール：</strong>「楽天でギフトを送るなら楽券」と第一想起されるブランドへ育てること。<br><strong>中期KPI：</strong>離脱率を10%改善 / 新規流入Visitsを+10%<br><strong>短期アプローチ：</strong>データで課題を特定し改善を実施。PDCAを回しながら徐々に目標値に近づける。'},
+       ja:`楽券の認知度は低く、流入の86%が既存ユーザー。直帰率は約40%と高く、新規訪問者がページに価値を見出せていないことが課題だった。<br><br><div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0;"><div style="background:#f5f5f3;border-radius:10px;padding:20px;text-align:center;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:12px;">流入ユーザー構成</div><div style="position:relative;width:120px;height:120px;margin:0 auto 12px;"><svg viewBox='0 0 42 42' style='width:100%;height:100%;transform:rotate(-90deg);'><circle cx='21' cy='21' r='15.9' fill='transparent' stroke='#e8e8e4' stroke-width='6'/><circle cx='21' cy='21' r='15.9' fill='transparent' stroke='#0d0d0d' stroke-width='6' stroke-dasharray='86 14' stroke-dashoffset='0'/></svg><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:20px;font-weight:700;color:#0d0d0d;">86%</div></div><div style="font-size:12px;color:#3a3a3a;font-weight:500;">既存ユーザー</div><div style="font-size:11px;color:#888;margin-top:4px;">新規はわずか14%</div></div><div style="background:#f5f5f3;border-radius:10px;padding:20px;text-align:center;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:12px;">直帰率</div><div style="position:relative;width:120px;height:120px;margin:0 auto 12px;"><svg viewBox='0 0 42 42' style='width:100%;height:100%;transform:rotate(-90deg);'><circle cx='21' cy='21' r='15.9' fill='transparent' stroke='#e8e8e4' stroke-width='6'/><circle cx='21' cy='21' r='15.9' fill='transparent' stroke='#0d0d0d' stroke-width='6' stroke-dasharray='40 60' stroke-dashoffset='0'/></svg><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:20px;font-weight:700;color:#0d0d0d;">40%</div></div><div style="font-size:12px;color:#3a3a3a;font-weight:500;">直帰率</div><div style="font-size:11px;color:#888;margin-top:4px;">新規訪問者が離脱</div></div></div><strong>長期ゴール：</strong>「楽天でギフトを送るなら楽券」と第一想起されるブランドへ育てること。<br><strong>中期KPI：</strong>離脱率を10%改善 / 新規流入Visitsを+10%<br><strong>短期アプローチ：</strong>データで課題を特定し改善を実施。PDCAを回しながら徐々に目標値に近づける。`},
       {labelEn:'02 — Data & Competitive Analysis',labelJa:'数値分析・競合分析',
-       en:'Analyzed heatmap data and found that many content blocks had click rates below 10%. Benchmarked against LINE Gift and found that scroll depth was approximately 2x longer — a significant UX gap. Further gaps uncovered:<br><ul><li data-num=\'true\'>① Lack of seasonal and occasion-based gift discovery</li><li data-num=\'true\'>② Insufficient visual cues for &ldquo;giftability&rdquo;</li><li data-num=\'true\'>③ Lack of clear navigation structure</li><li data-num=\'true\'>④ Inconsistent and oversized icons/buttons causing excess scroll</li><li data-num=\'true\'>⑤ Lack of consistent brand tone</li></ul>These findings confirmed the need for a full page overhaul targeting new users.',
-       ja:'ヒートマップを分析し、クリック率10%以下のコンテンツが多数発生していることを特定。LINEギフトとの比較ではスクロール回数が約2倍と、UIUX面での劣位も判明。課題が浮き彫りに。<br><ul><li data-num="true">① シーズンやイベントの切り口でのギフト提案の欠如</li><li data-num="true">② 看板画像のギフト感の欠如</li><li data-num="true">③ ナビゲーションの欠如</li><li data-num="true">④ アイコン・ボタンの不統一とサイズが大きくスクロール回数が増える問題</li><li data-num="true">⑤ トンマナ欠如</li></ul>これらの課題から、新規ユーザー向けのページ刷新が必要と判断。'},
+       en:'Analyzed heatmap data and found that many content blocks had click rates below 10%. Benchmarked against LINE Gift and found that scroll depth was approximately 2x longer — a significant UX gap. Further gaps uncovered:<br><ul><li data-num=\'true\'>① Lack of seasonal and occasion-based gift discovery</li><li data-num=\'true\'>② Insufficient visual cues for &ldquo;giftability&rdquo;</li><li data-num=\'true\'>③ Lack of clear navigation structure</li><li data-num=\'true\'>④ Inconsistent and oversized icons/buttons causing excess scroll</li><li data-num=\'true\'>⑤ Lack of consistent brand tone</li></ul>These findings confirmed the need for a full page overhaul targeting new users.<br><br><strong>Key insight from LINE Gift benchmarking:</strong> LINE Gift organizes discovery by scene and genre (café, sweets, convenience store, food, etc.), allowing users to find gifts through angles they hadn\'t considered. Rakken had no such navigation — users were left to scroll through 50+ products with no guidance.',
+       ja:'ヒートマップを分析し、クリック率10%以下のコンテンツが多数発生していることを特定。LINEギフトとの比較ではスクロール回数が約2倍と、UIUX面での劣位も判明。課題が浮き彫りに。<br><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0;"><div style="background:#f5f5f3;border-radius:8px;padding:14px 16px;border-left:3px solid #0d0d0d;"><div style="font-size:11px;color:#888;margin-bottom:4px;">① 発見の設計</div><div style="font-size:13px;color:#3a3a3a;">シーズン・イベント軸のギフト提案がない</div></div><div style="background:#f5f5f3;border-radius:8px;padding:14px 16px;border-left:3px solid #0d0d0d;"><div style="font-size:11px;color:#888;margin-bottom:4px;">② ギフト感</div><div style="font-size:13px;color:#3a3a3a;">看板画像にギフトらしさが欠けている</div></div><div style="background:#f5f5f3;border-radius:8px;padding:14px 16px;border-left:3px solid #0d0d0d;"><div style="font-size:11px;color:#888;margin-bottom:4px;">③ ナビゲーション</div><div style="font-size:13px;color:#3a3a3a;">カテゴリや目的別の導線がない</div></div><div style="background:#f5f5f3;border-radius:8px;padding:14px 16px;border-left:3px solid #0d0d0d;"><div style="font-size:11px;color:#888;margin-bottom:4px;">④ UI設計</div><div style="font-size:13px;color:#3a3a3a;">ボタンが大きすぎてスクロール増加</div></div><div style="background:#f5f5f3;border-radius:8px;padding:14px 16px;border-left:3px solid #0d0d0d;grid-column:1/-1;"><div style="font-size:11px;color:#888;margin-bottom:4px;">⑤ トンマナ</div><div style="font-size:13px;color:#3a3a3a;">デザインに一貫性がなくギフトサービスらしさが伝わらない</div></div></div>これらの課題から、新規ユーザー向けのページ刷新が必要と判断。<br><br><div style="margin:20px 0;overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:13px;"><thead><tr style="background:#f5f5f3;"><th style="padding:12px 16px;text-align:left;font-weight:600;border-bottom:2px solid #e8e8e4;">比較項目</th><th style="padding:12px 16px;text-align:center;font-weight:600;border-bottom:2px solid #e8e8e4;">楽券（改善前）</th><th style="padding:12px 16px;text-align:center;font-weight:600;border-bottom:2px solid #e8e8e4;">LINEギフト</th></tr></thead><tbody><tr style="border-bottom:1px solid #e8e8e4;"><td style="padding:12px 16px;font-weight:500;">スクロール回数</td><td style="padding:12px 16px;text-align:center;color:#888;">約3回</td><td style="padding:12px 16px;text-align:center;font-weight:600;">約1〜2回</td></tr><tr style="background:#fafaf8;border-bottom:1px solid #e8e8e4;"><td style="padding:12px 16px;font-weight:500;">カテゴリナビ</td><td style="padding:12px 16px;text-align:center;color:#888;">なし</td><td style="padding:12px 16px;text-align:center;font-weight:600;">シーン・ジャンル別</td></tr><tr style="border-bottom:1px solid #e8e8e4;"><td style="padding:12px 16px;font-weight:500;">商品の見せ方</td><td style="padding:12px 16px;text-align:center;color:#888;">50以上を全陳列</td><td style="padding:12px 16px;text-align:center;font-weight:600;">厳選＋絞り込み</td></tr><tr style="background:#fafaf8;border-bottom:1px solid #e8e8e4;"><td style="padding:12px 16px;font-weight:500;">ブランド一覧</td><td style="padding:12px 16px;text-align:center;color:#888;">2スクロール必要</td><td style="padding:12px 16px;text-align:center;font-weight:600;">1スクロールで完結</td></tr><tr><td style="padding:12px 16px;font-weight:500;">トンマナ</td><td style="padding:12px 16px;text-align:center;color:#888;">不統一</td><td style="padding:12px 16px;text-align:center;font-weight:600;">ギフト感あり統一</td></tr></tbody></table></div><strong>競合分析で得た重要な発見：</strong>LINEギフトはシーン・ジャンル（カフェ・スイーツ・コンビニ・フードなど）の切り口でギフトを探せる設計を採用しており、ユーザーが思い付かなかった視点でギフトを発見できる仕組みを持っていた。一方、楽券は50以上の商品をひたすら陳列するのみでナビゲーションがなく、ユーザーが何を選べばいいか迷う状態だった。'},
       {labelEn:'03 — Wireframe & Proposal',labelJa:'ワイヤーフレーム・提案',
-       en:'Created wireframes in Figma with a target of reducing scroll depth from 3 to 1. Right-sized buttons and banner widths to minimize drop-off. Proposed banner placements in high-demand seasonal campaigns (Christmas, Valentine) to create a new inflow channel for new users.',
-       ja:'<ul><li>Figmaでワイヤーフレームを作成。スクロール回数を3回→1回に削減することを設計目標に設定</li><li>ボタンサイズ・バナー幅を最適化し離脱を抑制</li><li>クリスマス・バレンタインなどギフト需要が高まるシーズナル企画へのバナー掲載を提案し、新規流入経路を設計</li></ul>'},
+       en:`Created wireframes in Figma with a target of reducing scroll depth from 3 to 1. Three key structural changes were proposed and implemented:<br><br><div style="border:1px solid #e8e8e4;border-radius:10px;overflow:hidden;margin-bottom:20px;"><div style="background:#f5f5f3;padding:20px 24px;border-bottom:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:6px;">① Brand List</div><div style="font-size:14px;font-weight:600;margin-bottom:6px;">4-col × 6-row → 5-col × 5-row</div><div style="font-size:13px;color:#3a3a3a;line-height:1.8;">Inspired by LINE Gift. Reduced logo size, restructured layout so the full brand lineup is visible in 1 scroll (was 2). Cognitive load reduced — easier to compare at a glance.</div></div><div style="display:grid;grid-template-columns:1fr 1fr;"><div style="padding:16px;border-right:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;">Before</div><img src="images/rakken_brand_before.png" alt="Brand list before" style="width:100%;border-radius:4px;"></div><div style="padding:16px;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;">After</div><img src="images/rakken_brand_after.png" alt="Brand list after" style="width:100%;border-radius:4px;"></div></div></div><div style="border:1px solid #e8e8e4;border-radius:10px;overflow:hidden;margin-bottom:20px;"><div style="background:#f5f5f3;padding:20px 24px;border-bottom:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:6px;">② Product List</div><div style="font-size:14px;font-weight:600;margin-bottom:6px;">50+ items → Top 20 + "View all"</div><div style="font-size:13px;color:#3a3a3a;line-height:1.8;">Click rate was ~5% on the full listing. Curated to Top 10 brands / 20 products. Page length halved. Drop-off significantly reduced.</div></div><div style='display:grid;grid-template-columns:1fr 1fr;'><div style='padding:16px;border-right:1px solid #e8e8e4;'><div style='font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;'>Before</div><img src='images/rakken_product_before.png' alt='Product list before' style='width:100%;border-radius:4px;'></div><div style='padding:16px;'><div style='font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;'>After</div><img src='images/rakken_product_after.png' alt='Product list after' style='width:100%;border-radius:4px;'></div></div></div><div style="border:1px solid #e8e8e4;border-radius:10px;overflow:hidden;"><div style="background:#f5f5f3;padding:20px 24px;border-bottom:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:6px;">③ Category Navigation</div><div style="font-size:14px;font-weight:600;margin-bottom:6px;">No nav → Browse by category</div><div style="font-size:13px;color:#3a3a3a;line-height:1.8;">Referenced LINE Gift's scene-based navigation. Added café / sweets / convenience / food / other — allowing users to discover gifts through intuitive context rather than aimless scrolling.</div></div><div style="padding:16px;text-align:center;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;">After</div><img src="images/rakken_cat_after.png" alt="Category navigation after" style="width:70%;border-radius:4px;"></div></div>`,
+       ja:`Figmaでワイヤーフレームを作成。スクロール回数削減を設計目標に3つの構造的改善を提案・実施した。<br><br><div style="border:1px solid #e8e8e4;border-radius:10px;overflow:hidden;margin-bottom:20px;"><div style="background:#f5f5f3;padding:20px 24px;border-bottom:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:6px;">① ブランド一覧</div><div style="font-size:14px;font-weight:600;margin-bottom:6px;">4列×6行（2スクロール）→ 5列×5行（1スクロール）</div><div style="font-size:13px;color:#3a3a3a;line-height:1.8;">LINEギフトの競合分析から発見。ロゴサイズを最適化しコンパクトに整理。1スクロールで全ブランドが比較できる設計へ変更し、認知負荷を下げ選びやすさを向上させた。</div></div><div style="display:grid;grid-template-columns:1fr 1fr;"><div style="padding:16px;border-right:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;">Before</div><img src="images/rakken_brand_before.png" alt="ブランド一覧 Before" style="width:100%;border-radius:4px;"></div><div style="padding:16px;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;">After</div><img src="images/rakken_brand_after.png" alt="ブランド一覧 After" style="width:100%;border-radius:4px;"></div></div></div><div style="border:1px solid #e8e8e4;border-radius:10px;overflow:hidden;margin-bottom:20px;"><div style="background:#f5f5f3;padding:20px 24px;border-bottom:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:6px;">② 商品一覧</div><div style="font-size:14px;font-weight:600;margin-bottom:6px;">50以上の商品をひたすら陳列 → 売上TOP10ブランド20商品＋「一覧を見る」</div><div style="font-size:13px;color:#3a3a3a;line-height:1.8;">クリック率約5%の全商品陳列をやめ、売上TOP10ブランド20商品に絞り残りはボタンで誘導。ページ長さを半分に縮小し、ページ下部への離脱を防いだ。</div></div><div style='display:grid;grid-template-columns:1fr 1fr;'><div style='padding:16px;border-right:1px solid #e8e8e4;'><div style='font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;'>Before</div><img src='images/rakken_product_before.png' alt='商品一覧 Before' style='width:100%;border-radius:4px;'></div><div style='padding:16px;'><div style='font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;'>After</div><img src='images/rakken_product_after.png' alt='商品一覧 After' style='width:100%;border-radius:4px;'></div></div></div><div style="border:1px solid #e8e8e4;border-radius:10px;overflow:hidden;"><div style="background:#f5f5f3;padding:20px 24px;border-bottom:1px solid #e8e8e4;"><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:6px;">③ カテゴリーナビゲーション</div><div style="font-size:14px;font-weight:600;margin-bottom:6px;">ナビなし → カフェ・スイーツ・コンビニ・フード・その他で探せる設計へ</div><div style="font-size:13px;color:#3a3a3a;line-height:1.8;">LINEギフトのシーン別ナビを参考に新設。ユーザーがギフトをイメージしやすい切り口を提供し、目的なく陳列を眺めるだけの体験から脱却した。</div></div><div style="padding:16px;text-align:center;"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#888;margin-bottom:8px;">After</div><img src="images/rakken_cat_after.png" alt="カテゴリーナビ After" style="width:70%;border-radius:4px;"></div></div>`},
       {labelEn:'04 — Production & Lead',labelJa:'制作・リード',
        en:'Coordinated with the business unit, directed one designer, and managed external vendors. Completed a full redesign of 2 pages within a 2-month production sprint.',
        ja:'<ul><li>事業部との折衝・デザイナー1名・外注調整を統括</li><li>約2ヶ月でページ2枚のフルリニューアルを完遂</li></ul>'},
@@ -730,7 +769,11 @@ function showCase(n) {
         <p style="font-size:12px;font-weight:200;color:#888;font-family:'DM Sans',sans-serif;line-height:1.8;">${c.note.en}</p>
       </div>` : ''}
     </div>
-    <div class="case-body">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('ja')">JP</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="case-body lang-ja" id="case-body">
       ${c.steps.map(s=>`
         <div class="case-step">
           <div class="case-step-label">${s.labelEn} / <span class="case-step-label-ja">${s.labelJa}</span></div>
@@ -743,7 +786,7 @@ function showCase(n) {
   if(c.results) {
     html += `
     <div style="padding:0 max(32px, calc((100% - 1060px) / 2));margin-bottom:0;">
-      <div style="font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-mid);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:0;">Results <span style="font-family:'Noto Sans JP';font-weight:200;font-size:13px;letter-spacing:.06em;text-transform:none;float:right;">成果</span></div>
+      <div style="font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-mid);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:0;">Results <span style="font-family:'Noto Sans JP';font-weight:200;font-size:13px;letter-spacing:.06em;text-transform:none;margin-left:12px;">成果</span></div>
       <div style="display:grid;grid-template-columns:repeat(${c.results.length},1fr);background:var(--line);margin:0 0 80px;">${c.results.map(r=>`<div class="case-result"><div class="case-result-num">${r.num}</div><div class="case-result-en">${r.en}</div><div class="case-result-ja">${r.ja}</div></div>`).join('')}</div>
     </div>`;
   }
@@ -775,6 +818,15 @@ function showCase(n) {
   window.scrollTo(0,0);
 }
 
+function setLang(lang) {
+  const body = document.getElementById('case-body');
+  if(!body) return;
+  body.className = 'case-body lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang || (lang==='ja' && btn.textContent==='JP') || (lang==='en' && btn.textContent==='EN'));
+  });
+}
+
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
@@ -794,7 +846,7 @@ document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 (function(){
   var u='',d='';
   var el=document.getElementById('contact-mail-work');
-  if(el) el.innerHTML='<a href="mailto:'+u+'@'+d+'" style="font-size:18px;font-weight:300;color:var(--gray-dark);text-decoration:none;">'+u+'@'+d+'</a>';
+  if(el) el.innerHTML='<span style="font-size:15px;color:var(--gray-mid);">お問い合わせはご面談にてご共有します</span>';
 })();
 </script>
 </body>
